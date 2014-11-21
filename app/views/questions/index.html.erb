@@ -1,0 +1,33 @@
+<div class="questions index">
+
+  <h1>Questions</h1>
+
+  <%= link_to "Add a New Question", "#", :class => 'action new' %>
+    <div class="container">
+      <div class="row">
+      </div>
+    </div>
+
+  <table class="listing" summary="Question list">
+    <tr class="header">
+      <th>&nbsp;</th>
+      <th>Question</th>
+      <th>Maximum rating</th>
+      <th>Actions</th>
+    </tr>
+    <% @questions.each do |question| %>
+    <tr>
+      <td><%= question.position %></td>
+      <td><%= question.summary %></td>
+      <td class="center"><%= %></td>
+      <td class="action">
+        <%= link_to('Show', '#', :class => 'action show') %>
+        <%= link_to('Edit', '#', :class => 'action edit') %>
+
+        <%= link_to('Delete', '#', :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+
+</div>
