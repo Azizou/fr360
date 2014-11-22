@@ -1,10 +1,10 @@
 class QuestionsController < ApplicationController
 
-  #before_action   :question_params , only: [:show, :create, :update]
-  #before_action   :find_question, only: [:delete, :update]
+ # before_action   :question_params , only: [:show, :update]
+  before_action   :find_question, only: [:delete, :update]
 
   def new
-    @question = Question.new(question_params)
+    @question = Question.new
   end
 
   def index
@@ -12,23 +12,22 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    find_question
   end
 
   def show
-    render :action => 'index'
+      @question = Question.find(params[:id])
   end
 
   def edit
-    find_question
-    render :action => 'edit'
   end
-  def create
 
+  def create
+    @question = Question.new(params[:data])
+    @question.save
+    redirect_to @questions
   end
 
   def delete
-    find_question
     @question = @question.destroy
     render index
   end
@@ -38,9 +37,9 @@ class QuestionsController < ApplicationController
     @question = Question.find(question_params[:id])
   end
 
-  private
+  protected
   def question_params
-    params.require(params[:id])
+    #params.require(params[:id]).permit(:position, :question, :summary)
   end
 
 end

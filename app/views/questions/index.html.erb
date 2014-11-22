@@ -1,19 +1,19 @@
-<div class="questions index">
+<div class="container questions index">
 
   <h1>Questions</h1>
 
-  <%= link_to "Add a New Question", "#", :class => 'action new' %>
+  <%= link_to "Add a New Question", { controller: 'questions', action: :new} %>
     <div class="container">
       <div class="row">
       </div>
     </div>
 
-  <table class="listing" summary="Question list">
+  <table class="listing" border="3" summary="Question list">
     <tr class="header">
-      <th>&nbsp;</th>
+      <th>Question No</th>
       <th>Question</th>
       <th>Maximum rating</th>
-      <th>Actions</th>
+      <th>Possibles Actions</th>
     </tr>
     <% @questions.each do |question| %>
     <tr>
@@ -21,9 +21,8 @@
       <td><%= question.summary %></td>
       <td class="center"><%= %></td>
       <td class="action">
-        <%= link_to('Show', '#', :class => 'action show') %>
+        <%= link_to('Show', '#', :class => 'panel-info') %>
         <%= link_to('Edit', '#', :class => 'action edit') %>
-
         <%= link_to('Delete', '#', :class => 'action delete') %>
       </td>
     </tr>

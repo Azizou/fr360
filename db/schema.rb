@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120162918) do
+ActiveRecord::Schema.define(version: 20141121160816) do
 
   create_table "admins", force: true do |t|
     t.datetime "created_at"
@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 20141120162918) do
     t.string   "last_name",  limit: 40
     t.string   "email",                 default: ""
     t.boolean  "completed",             default: false
-    t.string   "type",                  default: "team_member"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
