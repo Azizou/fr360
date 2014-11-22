@@ -1,2 +1,8 @@
 <h1>Question#update</h1>
-<p>Find me in app/views/question/update.html.erb</p>
+<p>
+    <% if @question.inspect %>
+        <p> Successful update </p>
+    <% else %>
+        <p> A problem was encountered during the update
+    <% end %>
+</p>

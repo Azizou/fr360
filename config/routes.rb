@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'members/create'
 
   get 'members/update'
+  get 'questions/update'
 
   resources  :questions
 

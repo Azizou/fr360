@@ -1,10 +1,11 @@
 class QuestionsController < ApplicationController
 
- # before_action   :question_params , only: [:show, :update]
-  before_action   :find_question, only: [:delete, :update]
+  before_action   :question_params , only: [:create]
+  before_action   :find_question, only: [:delete]
 
   def new
     @question = Question.new
+    @question.position = Question.last.position + 1
   end
 
   def index
@@ -12,6 +13,10 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    find_question
+    @question = @question.update(question_params)
+
+
   end
 
   def show
@@ -19,27 +24,29 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    @question = Question.find(params[:id])
   end
 
   def create
-    @question = Question.new(params[:data])
-    @question.save
-    redirect_to @questions
+    @question = Question.create(question_params)
+    if @question.valid?
+      redirect_to question_path(@question)
+    else
+    end
   end
 
-  def delete
-    @question = @question.destroy
-    render index
+  def destroy
+    @question = Question.find(params[:id]).destroy
+    redirect_to action: :index
   end
 
   def find_question
-    question_params
-    @question = Question.find(question_params[:id])
+    @question = Question.find(params[:id])
   end
 
   protected
   def question_params
-    #params.require(params[:id]).permit(:position, :question, :summary)
+    params.require(:question).permit(:position, :question, :summary)
   end
 
 end

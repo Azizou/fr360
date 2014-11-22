@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141121160816) do
+ActiveRecord::Schema.define(version: 20141122094002) do
 
   create_table "admins", force: true do |t|
     t.datetime "created_at"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20141121160816) do
   end
 
   create_table "feedbacks", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "question_id"
     t.integer  "performance_review_id"
     t.string   "comment"
     t.integer  "rating"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20141121160816) do
     t.datetime "updated_at"
   end
 
-  add_index "feedbacks", ["user_id", "performance_review_id"], name: "index_feedbacks_on_user_id_and_performance_review_id", using: :btree
+  add_index "feedbacks", ["question_id", "performance_review_id"], name: "index_feedbacks_on_question_id_and_performance_review_id", using: :btree
 
   create_table "performance_reviews", force: true do |t|
     t.integer  "user_id"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20141121160816) do
     t.string   "summary"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "max_rate",   default: 10
   end
 
   create_table "users", force: true do |t|

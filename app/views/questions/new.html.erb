@@ -1,20 +1,5 @@
 <div class="container">
   <h1 class="label-default">Add a new question:</h1>
-  <div class="form-group">
-    <div>
-      <% form_tag(:action => 'create') do %>
-        <%= label_tag('Question Number:') %>
-        <%= text_field(:data, :position) %><br />
-        <%= label_tag('Summary:') %>
-        <%= text_field(:data, :summary) %><br />
-        <%= label_tag('Question:') %>
-        <%= text_field(:data, :question) %><br />
-
-        <%= submit_tag('Create a new question') %>
-
-      <% end%>
-    </div>
-  </div>
 
   <div class="container">
     <%= form_for @question, url: questions_path do |f| %>
@@ -31,6 +16,10 @@
         <p>
           <%= f.label :question %><br>
           <%= f.text_area :question %>
+        </p>
+        <p>
+          <%= f.label :max_rate %><br>
+          <%= f.text_field :max_rate %>
         </p>
 
         <p>

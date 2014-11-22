@@ -1,2 +1,10 @@
-<h1>Question#show</h1>
-<p>Find me in app/views/question/show.html.erb</p>
+<div class="container"> &nbsp;
+  <div  class="text-capitalize"><%= link_to '<< Back to Questions list', questions_path %></div>
+
+      <div class="panel panel-title"> <%= 'Question ' + @question.position.to_s + ': ' %></div>
+      <div class="panel panel-body l">
+        <div class="text-justify" > Summary:        <%= '       ' +@question.summary%></div>
+        <div class="text-justify" > Question:       <p><%= '        ' + @question.question%></p></div>
+        <div class="text-justify">  Max rate:       <%= '       '+@question.max_rate.to_s %></div>
+      </div>
+</div>

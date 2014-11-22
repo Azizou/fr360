@@ -2,15 +2,11 @@
 
   <h1>Questions</h1>
 
-  <%= link_to "Add a New Question", { controller: 'questions', action: :new} %>
-    <div class="container">
-      <div class="row">
-      </div>
-    </div>
+  <%= link_to 'Add a New Question', { controller: 'questions', action: :new} %>
 
-  <table class="listing" border="3" summary="Question list">
-    <tr class="header">
-      <th>Question No</th>
+  <table class="table table-bordered table-striped text-center" summary="Question list">
+    <tr>
+      <th class="">Question No</th>
       <th>Question</th>
       <th>Maximum rating</th>
       <th>Possibles Actions</th>
@@ -19,11 +15,11 @@
     <tr>
       <td><%= question.position %></td>
       <td><%= question.summary %></td>
-      <td class="center"><%= %></td>
+      <td class="center"><%= question.max_rate %></td>
       <td class="action">
-        <%= link_to('Show', '#', :class => 'panel-info') %>
-        <%= link_to('Edit', '#', :class => 'action edit') %>
-        <%= link_to('Delete', '#', :class => 'action delete') %>
+        <%= link_to('Show', question) %>
+        <%= link_to('Edit', {:action => :edit, :id => question.id}) %>
+        <%= link_to('Delete', question_path(question), method: :delete, data: {:confirm => 'Are you sure'}) %>
       </td>
     </tr>
     <% end %>
