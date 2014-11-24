@@ -11,9 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141122094002) do
+ActiveRecord::Schema.define(version: 20141124145338) do
 
   create_table "admins", force: true do |t|
+    t.string   "first_name", limit: 30
+    t.string   "last_name",  limit: 40
+    t.string   "email",                 default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,6 +32,22 @@ ActiveRecord::Schema.define(version: 20141122094002) do
 
   add_index "feedbacks", ["question_id", "performance_review_id"], name: "index_feedbacks_on_question_id_and_performance_review_id", using: :btree
 
+  create_table "globals", force: true do |t|
+    t.boolean  "admin",                    default: false
+    t.integer  "total_number_of_question"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "navigations", force: true do |t|
+    t.string   "title",       limit: 25
+    t.integer  "position"
+    t.string   "permalink"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "nav_enabled"
+  end
+
   create_table "performance_reviews", force: true do |t|
     t.integer  "user_id"
     t.integer  "number_of_questions"
@@ -41,7 +60,7 @@ ActiveRecord::Schema.define(version: 20141122094002) do
   add_index "performance_reviews", ["user_id"], name: "index_performance_reviews_on_user_id", using: :btree
 
   create_table "questions", force: true do |t|
-    t.string   "question"
+    t.text     "question"
     t.integer  "position"
     t.string   "summary"
     t.datetime "created_at"

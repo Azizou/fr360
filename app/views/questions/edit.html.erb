@@ -1,33 +1,45 @@
-<h1>Edit a question</h1>
-
 <div class="container">
-  <h1 class="label-default">Edit a question:</h1>
+  <div class="panel">
+    <div class="panel-heading">
+      <div class="panel-title">
+        <h1>Edit a question:</h1>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="row">
 
-  <div class="container">
-    <%= form_for @question, url: {id: @question.id, action: :update} do |f| %>
-        <p>
-          <%= f.label :position %><br>
-          <%= f.text_field :position %>
-        </p>
+            <div class="form-group">
+             <%= form_for @question, url: {id: @question.id, action: :update} do |f| %>
+              <div class="form-group">
+                <%= f.label :position %><br>
+                <%= f.text_field :position %>
+              </div>
 
-        <p>
-          <%= f.label :summary %><br>
-          <%= f.text_area :summary %>
-        </p>
+              <div class="form-group">
+                <%= f.label :summary %><br>
+                <%= f.text_field :summary %>
+              </div>
 
-        <p>
-          <%= f.label :question %><br>
-          <%= f.text_area :question %>
-        </p>
-        <p>
-          <%= f.label :max_rate %><br>
-          <%= f.text_field :max_rate %>
-        </p>
+              <div class="form-group">
+                <%= f.label :question %><br>
+                <%= f.text_area :question %>
+              </div>
+              <div class="form-group">
+                <%= f.label :max_rate %><br>
+                <%= f.text_field :max_rate %>
 
-        <p>
-          <%= f.submit %>
-        </p>
-    <% end %>
+              </div>
+
+              <div class="form-group">
+                <%= submit_tag("Update question #{@question.position}") %>
+              </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+
   </div>
+
 </div>
 

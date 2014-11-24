@@ -1,6 +1,10 @@
-<div class="container"> &nbsp;
-  <div  class="text-capitalize"><%= link_to '<< Back to Questions list', questions_path %></div>
-
+<div class="container" xmlns="http://www.w3.org/1999/html"> &nbsp;
+  <div  class="btn btn-default">
+    <i class="">
+      <%= link_to ' Back to Questions list', questions_path %>
+    </i>
+  </div>
+  <br>
       <div class="panel panel-title"> <%= 'Question ' + @question.position.to_s + ': ' %></div>
       <div class="panel panel-body l">
         <div class="text-justify" > Summary:        <%= '       ' +@question.summary%></div>

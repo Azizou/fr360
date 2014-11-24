@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string    :last_name,   :limit => 40
       t.string    :email,       :default => ''
       t.boolean   :completed,       :default => false       #Has the user completed the review?
-      t.string    :type,        :default => 'team_member'
+      t.string    :type,        :default => 'team_member'   #Modified to ..
 
       # user-- team member
       # or external

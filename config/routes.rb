@@ -1,25 +1,16 @@
 Rails.application.routes.draw do
 
-  get 'home/home'
-
-  get 'home/help'
-
-  get 'home/contact_us'
-
-  get 'home/about'
-
   root to: 'home#home'
 
-  get 'admin/index'
+  resources :admin
 
-  get 'members/new'
+  resources :home
 
-  get 'members/create'
-
-  get 'members/update'
-  get 'questions/update'
+  resources :members
 
   resources  :questions
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
