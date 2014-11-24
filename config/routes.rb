@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
 
+  get '/home' => 'home#home'
+  get '/index' => 'home#home'
+
+  resources :users
+
   root to: 'home#home'
 
   resources :admin
 
   resources :home
-
-  resources :members
 
   resources  :questions
 
