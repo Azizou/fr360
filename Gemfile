@@ -39,6 +39,9 @@ gem 'sprockets-rails', '~> 2.2.0'
 #use fontawesome
 gem 'font-awesome-rails', '~> 4.2.0.0'
 
+#wysiwyg-rails
+
+gem 'wysiwyg-rails', '~> 1.2.3'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
