@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  get '/home' => 'home#home'
-  get '/index' => 'home#home'
+  get '/home/home' => 'home#home'
 
   resources :users
 

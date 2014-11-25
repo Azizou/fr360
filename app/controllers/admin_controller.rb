@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
 
-  before_action :find_admin, only: [:update, :delete, :show]
+#  before_action :find_admin, only: [:update, :delete, :show]
 
   def new
     @admin=Admin.new
@@ -19,11 +19,21 @@ class AdminController < ApplicationController
   end
 
   def index
-    @admins =Admin.all
+    @users = User.all
+    render 'users/index'
   end
 
   def show
-    render :show
+  end
+
+  def feedback_form
+    @user = User.find(params[:id])
+    @performance_review = PerformanceReview.new
+    @feedback = Feedback.new
+  end
+
+  def create_form
+
   end
 
   private

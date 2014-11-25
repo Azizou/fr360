@@ -23,19 +23,10 @@
       <ul class="nav nav-pills" style="{display: inline}">
         <% navs=Navigation.all %>
         <% navs.each do |nav| %>
-            <% active_state = if nav.nav_enabled
-                                'active'
-                              else
-                                ''
-                              end
-            %>
-            <li role="presentation" <%= 'class=' + active_state %> ><%= link_to nav.title , nav.permalink %> </li>
+            <li role="presentation" <%= 'class=' + (:controller.capitalize==nav.title.capitalize ? 'active':'') %> ><%= link_to nav.title , nav.permalink %> </li>
         <% end%>
       </ul>
-      <ul class="navbar-right" >
-        <% if Global.first.admin %>
-      <% end %>
-      </ul>
+
     </div><!--/.nav-collapse -->
   </div><!--/.container-fluid -->
 </div>
