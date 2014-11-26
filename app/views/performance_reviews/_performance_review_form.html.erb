@@ -3,6 +3,7 @@
       <% Question.all.each do |question| %>
           <h3> Question <%= question.position.to_s + ': ' %> </h3>
           <p><%= question.question %></p>
+            <%= feedback = Feedback.new(question_id: question.id)%>
           <%= fields_for :feedback do |builder| %>
               <label for="buider">Rating: </label>
               <select name="builder">
@@ -14,7 +15,7 @@
                 <option value="5">5</option>
               </select>
 
-              <% max = quesion.max_rate %>
+              <% max = builder.quesion.max_rate %>
               <div class="form-inline">
                 <div class="controls-row">
                   <label class="control-label"><%=  %></label>
