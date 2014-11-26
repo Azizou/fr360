@@ -1,0 +1,47 @@
+<div class="panel-body">
+  <%= form_for @performance_review, url: performance_reviews_path do |review|%>
+      <% Question.all.each do |question| %>
+          <h3> Question <%= question.position.to_s + ': ' %> </h3>
+          <p><%= question.question %></p>
+          <%= fields_for :feedback do |builder| %>
+              <label for="buider">Rating: </label>
+              <select name="builder">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+
+              <% max = quesion.max_rate %>
+              <div class="form-inline">
+                <div class="controls-row">
+                  <label class="control-label"><%=  %></label>
+                </div>
+              </div>
+
+
+              <form>
+                <div class="form-inline">
+                  <div class="controls-row">
+                    <label class="control-label">Some label</label>
+                    <label class="radio inline">
+                      <input type="radio" value="1" name="free"/>
+                      First
+                    </label>
+                    <label class="radio inline">
+                      <input type="radio" value="2" name="free"/>
+                      Second
+                    </label>
+                  </div>
+                </div>
+              </form>
+
+
+              <%= render partial: 'comment_field',  locals: { question: builder} %>
+          <% end %>
+      <% end %>
+      <button class="btn btn-default" type="submit">Submit feedback</button>
+  <% end %>
+</div>

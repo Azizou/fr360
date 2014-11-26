@@ -13,26 +13,26 @@
   </style>
 </head>
 <body class="back">
-
-<!--</div>-->
-<div class="navbar navbar-inverse" role="navigation">
+<div class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <div class="navbar-collapse collapse">
       <a class="navbar-brand">FR360</a>
 
       <ul class="nav nav-pills" style="{display: inline}">
-        <% navs=Navigation.all %>
-        <% navs.each do |nav| %>
-            <li role="presentation" <%= 'class=' + (:controller.capitalize==nav.title.capitalize ? 'active':'') %> ><%= link_to nav.title , nav.permalink %> </li>
+        <% Navigation.all.each do |nav| %>
+            <li role="presentation" <%= 'class=' + (self.controller.to_s.capitalize==nav.title.capitalize ? 'active':'') %> ><%= link_to nav.title , nav.permalink %> </li>
         <% end%>
       </ul>
 
     </div><!--/.nav-collapse -->
+
   </div><!--/.container-fluid -->
 </div>
 
 
 <%= yield %>
+
+<%= render partial: 'layouts/footer' %>
 
 </body>
 </html>

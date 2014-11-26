@@ -3,7 +3,8 @@ class AdminController < ApplicationController
 #  before_action :find_admin, only: [:update, :delete, :show]
 
   def new
-    @admin=Admin.new
+    #@admin=Admin.new
+    feedback_form
   end
 
   def create
@@ -27,13 +28,14 @@ class AdminController < ApplicationController
   end
 
   def feedback_form
-    @user = User.find(params[:id])
+    @user = User.first
     @performance_review = PerformanceReview.new
     @feedback = Feedback.new
+    render :feedback_form
   end
 
   def create_form
-
+    render :index
   end
 
   private

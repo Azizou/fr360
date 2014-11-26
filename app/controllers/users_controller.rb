@@ -1,25 +1,44 @@
 class UsersController < ApplicationController
 
-  before_action :find_user, only: [:edit, :show, :update]
+  before_action :find_user, only: [:edit, :show, :update, :destroy]
 
   def index
     @users = User.all
+    render :index
+
   end
 
   def new
     @user = User.new
+
   end
 
   def update
-    @user = @user.update user_params
+
+    if  @user.update user_params
+      flash[:notice] = "User #{@user.full_name} has been successfully added"
+      render :action => :show, id: @user.id
+    else
+      flash[:error] = 'Attempt to update user details failed, try again'
+      render :edit
+    end
   end
 
   def create
-    @user = User.create user_params
+    @user = User.new user_params
+    if @user.save
+      flash[:notice] = "User #{@user.full_name} has been successfully added"
+      render :action => :show, id: @user.id
+    else
+      flash[:error] = 'Attempt to add a new user failed, try again'
+      render :new
+    end
   end
 
-  def delete
+  def destroy
     @user  = @user.destroy
+    @users = User.all
+    render :index
   end
 
   def show

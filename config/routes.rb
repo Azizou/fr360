@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
 
-  get '/home/home' => 'home#home'
+  root to: 'home#home'
+
+  resources :performance_reviews
 
   resources :users
-
-  root to: 'home#home'
 
   resources :admin
 
   resources :home
 
   resources  :questions
+
+  #get '../../assets/images/background.jpg'
 
 
 

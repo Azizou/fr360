@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 ">
+      <div class="panel panel-primary">
+        <div class="panel-heading"><h4>Logged in as <%= @user.full_name %></h4></div>
+        <div class="panel-body">
+          <table class="table table-bordered table-striped">
+            <tr>
+              <th>Team Member</th>
+              <th>Completed</th>
+              <th>View PR</th>
+            </tr>
+            <% User.all.each do |user|%>
+                <tr>
+
+
+                  <td>
+                    <%= user.full_name %>
+                  </td>
+                  <td>
+                    <%= user.completed? ? 'Done':'In progress' %>
+                  </td>
+                  <td>
+                    <%= link_to 'User details', user %>
+                  </td>
+                </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 col-md-offset-1">
+      <div class="panel panel-info">
+        <div class="panel-heading"><h3>Rating for <%= @user.first_name %> </h3></div>
+        <%= render partial: 'performance_review_form' %>
+      </div>
+    </div>
+  </div>
+</div>
