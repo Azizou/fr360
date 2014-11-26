@@ -1,1 +1,5 @@
-<%= render partial: 'comment_field' %>
+
+<h3> Question <%= f.object.question.position.to_s + ': ' %> </h3>
+<div class="panel panel-heading panel-primary"><h5><%= f.object.question.question %></h5></div>
+<%= render partial: 'comment_field' , locals: {f: f}%>
+<%= render partial: 'radio_buttons', locals: {f: f, max: f.object.question.max_rate} %>

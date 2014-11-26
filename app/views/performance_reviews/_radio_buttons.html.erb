@@ -1,0 +1,6 @@
+<div class="form-group">
+  <%(1...(max + 1)).each do |i| %>
+    <%= f.radio_button('rating' ,i) %>
+    <%= f.label :i, i.to_s %>
+  <% end %>
+</div>

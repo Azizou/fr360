@@ -6,11 +6,25 @@ class PerformanceReviewsController < ApplicationController
 
   def new
     @user = User.first
+    @questions = Question.sorted
     @performance_review = PerformanceReview.new
+    @performance_review.user_id = @user.id
+    Question.all.each do |question|
+      @performance_review.feedbacks.build(question_id: question.id)
+    end
   end
 
   def create
+    #raise params.to_yaml
+
     @performance_review = PerformanceReview.new(review_params)
+    if @performance_review.save
+      flash[:notice] = 'Successfully saved PR'
+      render 'users/index'
+    else
+      flash[:notice] = 'Successfully saved PR'
+      render :new
+    end
   end
 
   def show
@@ -27,6 +41,6 @@ class PerformanceReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:performance_review).permit(:feedback)
+    params.require(:performance_review).permit(:feedbacks_attributes)
   end
 end
