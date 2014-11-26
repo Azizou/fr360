@@ -20,9 +20,10 @@ class PerformanceReviewsController < ApplicationController
     @performance_review = PerformanceReview.new(review_params)
     if @performance_review.save
       flash[:notice] = 'Successfully saved PR'
+      @users = User.all
       render 'users/index'
     else
-      flash[:notice] = 'Successfully saved PR'
+      flash[:notice] = 'Failed to save PR to persistent db'
       render :new
     end
   end
