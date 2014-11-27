@@ -1,0 +1,16 @@
+<div class="form-group">
+  <label for="position">Position:</label>
+  <input type="text" class="form-control" id="position" name="question[position]" placeholder="Question number e.g 3 for Question 3" value="<%= question.position.blank? ? '': question.position%>">
+</div>
+<div class="form-group">
+  <label for="summary">Summary</label>
+  <input type="text" class="form-control" id="summary" name="question[summary]" placeholder="Summary of the question or title" value="<%= question.summary.blank? ? '': question.summary%>">
+</div>
+<div class="form-group">
+  <label for="question">Content</label><br>
+  <textarea class="form-control" id="question" name="question[question]" placeholder="Content/Question" ><%= question.question.blank? ? '': question.question %></textarea>
+</div>
+<div class="form-group">
+  <label for="max_rate">Question</label><br>
+  <input type="text" class="form-control" id="max_rate" name="question[max_rate]" placeholder="Maximum rating" value="<%= question.max_rate.blank? ? '': question.max_rate%>">
+</div>

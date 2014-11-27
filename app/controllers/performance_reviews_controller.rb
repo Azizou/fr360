@@ -15,7 +15,7 @@ class PerformanceReviewsController < ApplicationController
   end
 
   def create
-    raise review_params.to_yaml
+    #raise review_params.to_yaml
 
     @performance_review = PerformanceReview.new(review_params)
     if @performance_review.save

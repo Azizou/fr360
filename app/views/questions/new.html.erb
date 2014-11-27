@@ -4,24 +4,9 @@
       <div class="panel panel-info">
         <div class="panel-heading"><h4>Add a new question</h4></div>
         <div class="panel-body">
-          <%= form_for @question, url: questions_path  do %>
-            <div class="form-group">
-              <label for="position">Position:</label>
-              <input type="text" class="form-control" id="position" name="question[position]" placeholder="Question number e.g 3 for Question 3">
-            </div>
-            <div class="form-group">
-              <label for="summary">Summary</label>
-              <input type="text" class="form-control" id="summary" name="question[summary]" placeholder="Summary of the question or title">
-            </div>
-            <div class="form-group">
-              <label for="question">Question</label><br>
-              <textarea class="form-control" id="question" name="question[question]" placeholder="Content/Question"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="max_rate">Question</label><br>
-              <input type="text" class="form-control" id="max_rate" name="question[max_rate]" placeholder="Maximum rating">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+          <%= form_for @question, url: questions_path  do |ff|%>
+            <%= render partial: 'question_form', locals: {question: @question} %>
+            <%= ff.submit('Save question', class: 'btn btn-primary')%>
           <% end %>
         </div>
       </div>

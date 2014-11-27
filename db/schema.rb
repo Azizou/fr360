@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141124145338) do
+ActiveRecord::Schema.define(version: 20141127102746) do
 
   create_table "admins", force: true do |t|
     t.string   "first_name", limit: 30
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20141124145338) do
   create_table "feedbacks", force: true do |t|
     t.integer  "question_id"
     t.integer  "performance_review_id"
-    t.string   "comment"
+    t.text     "comment"
     t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
