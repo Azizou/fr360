@@ -38,7 +38,7 @@ gem 'autoprefixer-rails'
 gem 'sprockets-rails', '~> 2.2.0'
 
 #use fontawesome
-gem 'font-awesome-rails', '~> 4.2.0.0'
+gem 'font-awesome-sass', '~> 4.2.0.0'
 
 #wysiwyg-rails
 
