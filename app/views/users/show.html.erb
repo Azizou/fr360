@@ -1,4 +1,12 @@
 <div class="container-fluid">
+
+
+  <div  class="btn btn-default">
+    <i class="glyphicon-fast-backward">
+      <%= link_to ' Back to users list', users_path %>
+    </i>
+  </div>
+  <br>
     <div class="row">
       <div class="col-md-5 col-md-offset-2">
         <div class="panel panel-info">
@@ -15,14 +23,11 @@
               </tr>
               <tr>
                 <td><strong>Review status:</strong></td>
-                <td><%= @user.completed? ? 'Done':'pending' %></td>
+                <td><%= @user.completed? ? 'Done':'Pending' %></td>
               </tr>
             </table>
           </div>
         </div>
       </div>
     </div>
-
-  <p></p>
-
 </div>

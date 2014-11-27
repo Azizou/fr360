@@ -1,6 +1,6 @@
 <div class="container" xmlns="http://www.w3.org/1999/html"> &nbsp;
   <div  class="btn btn-default">
-    <i class="">
+    <i class="glyphicon-arrow-left">
       <%= link_to ' Back to Questions list', questions_path %>
     </i>
   </div>
@@ -11,4 +11,31 @@
         <div class="text-justify" > Question:       <p><%= '        ' + @question.question%></p></div>
         <div class="text-justify">  Max rate:       <%= '       '+@question.max_rate.to_s %></div>
       </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5 col-md-offset-2">
+      <div class="panel panel-info">
+        <div class="panel-heading"><h3>Details for question <%=' ' +  @question.position.to_s %></h3></div>
+        <div class="panel-body">
+          <table class="table">
+            <tr>
+              <td><strong>Summary:</strong></td>
+              <td><%= @question.summary %></td>
+            </tr>
+            <tr>
+              <td><strong>Question:</strong></td>
+              <td><%= @question.question%></td>
+            </tr>
+            <tr>
+              <td><strong>Weighting(maximum rating:</strong></td>
+              <td><%= @question.max_rate%></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
