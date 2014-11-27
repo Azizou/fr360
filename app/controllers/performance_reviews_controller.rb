@@ -15,7 +15,7 @@ class PerformanceReviewsController < ApplicationController
   end
 
   def create
-    #raise params.to_yaml
+    raise review_params.to_yaml
 
     @performance_review = PerformanceReview.new(review_params)
     if @performance_review.save
@@ -42,6 +42,6 @@ class PerformanceReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:performance_review).permit(:feedbacks_attributes)
+    params.require(:performance_review).permit(:user_id, feedbacks_attributes: [:rating, :comment, :question_id])
   end
 end

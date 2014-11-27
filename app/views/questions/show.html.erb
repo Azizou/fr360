@@ -1,21 +1,11 @@
-<div class="container" xmlns="http://www.w3.org/1999/html"> &nbsp;
-  <div  class="btn btn-default">
-    <i class="glyphicon-arrow-left">
-      <%= link_to ' Back to Questions list', questions_path %>
-    </i>
-  </div>
-  <br>
-      <div class="panel panel-title"> <%= 'Question ' + @question.position.to_s + ': ' %></div>
-      <div class="panel panel-body l">
-        <div class="text-justify" > Summary:        <%= '       ' +@question.summary%></div>
-        <div class="text-justify" > Question:       <p><%= '        ' + @question.question%></p></div>
-        <div class="text-justify">  Max rate:       <%= '       '+@question.max_rate.to_s %></div>
-      </div>
-</div>
-
-<div class="container-fluid">
+<div class="container-fluid" xmlns="http://www.w3.org/1999/html">
   <div class="row">
     <div class="col-md-5 col-md-offset-2">
+      <div  class="btn btn-default">
+        <i class="glyphicon-arrow-left">
+          <%= link_to ' Back to questions list', questions_path %>
+        </i>
+      </div><br><br>
       <div class="panel panel-info">
         <div class="panel-heading"><h3>Details for question <%=' ' +  @question.position.to_s %></h3></div>
         <div class="panel-body">

@@ -16,13 +16,15 @@ class UsersController < ApplicationController
 
   def update
 
-    if  @user.update user_params
+    saved =  @user.update(user_params)
+    if saved
       flash[:notice] = "User #{@user.full_name} has been successfully added"
       render :action => :show, id: @user.id
     else
       flash[:error] = 'Attempt to update user details failed, try again'
       render :edit
     end
+    render :nothing => true
   end
 
   def create
