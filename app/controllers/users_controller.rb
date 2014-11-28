@@ -15,8 +15,7 @@ class UsersController < ApplicationController
   end
 
   def update
-
-    saved =  @user.update(user_params)
+    saved =  @user.update_attributes(user_params)
     if saved
       flash[:notice] = "User #{@user.full_name} has been successfully added"
       render :action => :show, id: @user.id

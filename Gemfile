@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+#source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -44,7 +44,7 @@ gem 'font-awesome-sass', '~> 4.2.0.0'
 
 gem 'wysiwyg-rails', '~> 1.2.3'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
