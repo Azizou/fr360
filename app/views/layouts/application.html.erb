@@ -1,38 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>360 degree feedback</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <link rel="icon" href="../images/flavicon.ico">
+  <title>360 Feedback | <%= @page_title %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
-  <style>
-    .back {
-        background-image: url('../../assets/images/background.jpg');
-    }
-  </style>
 </head>
 <body class="back">
-<div class="navbar navbar-inverse" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-collapse collapse">
-      <a class="navbar-brand">FR360</a>
 
-      <ul class="nav nav-pills" style="{display: inline}">
-        <% Navigation.all.each do |nav| %>
-            <li role="presentation" <%= 'class=' + (self.controller.to_s.capitalize==nav.title.capitalize ? 'active':'') %> ><%= link_to nav.title , nav.permalink %> </li>
-        <% end%>
-      </ul>
+<%= render partial: 'layouts/navigation', locals: {navigations: @navigations} %>
+<div class="container">
+    <% unless flash[:notice].blank? %>
+        <div class="label label-info">
 
-    </div><!--/.nav-collapse -->
-
-  </div><!--/.container-fluid -->
-</div>
+          <%= flash[:notice]%>
+        </div>
+    <% end %>
 
 
-<%= yield %>
+    <%= yield %>
 
-<%= render partial: 'layouts/footer' %>
+    <%= render partial: 'layouts/footer' %>
+  </div>
 
 </body>
 </html>

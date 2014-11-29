@@ -5,6 +5,9 @@
       <div class="panel panel-info">
         <div class="panel-heading"><h3>Users page</h3></div>
       <div class="panel-body">
+        <div>
+          <%= pluralize(@users.count, 'user') +' found'%>
+        </div>
       <table class="table table-bordered table-striped">
         <tr>
           <th>First Name</th>

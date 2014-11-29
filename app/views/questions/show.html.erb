@@ -1,15 +1,13 @@
+<% @page_title = 'Question ' + @question.position.to_s %>
 <div class="container-fluid" xmlns="http://www.w3.org/1999/html">
   <div class="row">
     <div class="col-md-5 col-md-offset-2">
-      <i class="icon-arrow-left"></i>Back
+      <div  class="btn btn-info">
+        <i><%= link_to ' <<< Back to questions list', questions_path , class: 'text-default' %></i>
 
-      <div  class="btn btn-default">
-        <i class="glyphicon-arrow-left">
-          <%= link_to ' Back to questions list', questions_path %>
-        </i>
       </div><br><br>
       <div class="panel panel-info">
-        <div class="panel-heading"><h3>Details for question <%=' ' +  @question.position.to_s %></h3></div>
+        <div class="panel-heading"><h3>Details of question <%=' ' +  @question.position.to_s %></h3></div>
         <div class="panel-body">
           <table class="table">
             <tr>
@@ -21,7 +19,7 @@
               <td><%= @question.question%></td>
             </tr>
             <tr>
-              <td><strong>Weighting(maximum rating:</strong></td>
+              <td><strong>Maximum rating:</strong></td>
               <td><%= @question.max_rate%></td>
             </tr>
           </table>

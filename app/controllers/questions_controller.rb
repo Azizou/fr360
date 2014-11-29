@@ -1,6 +1,5 @@
 class QuestionsController < ApplicationController
 
-  before_action   :question_params , only: [:create, :update]
   before_action   :find_question, only: [:destroy, :show, :edit, :update]
 
   def new
@@ -13,8 +12,14 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question = @question.update(question_params)
-
+    @old = Question.find(@question.id)
+    if  @question.update(question_params)
+      flash[:notice] = "Question #{@question.position} updated successfully"
+      redirect_to action: :index
+    else
+      flash[:notice] = 'Unable to update question ensure no blank field'
+      render :edit
+    end
 
   end
 
@@ -26,24 +31,31 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.create(question_params)
-    if @question.valid?
+    if @question.save
+      flash[:notice] = 'Question added successfully'
       redirect_to question_path(@question)
     else
+      flash[:notice] = 'Unable to submit question, please fill all the filed'
+      render 'new'
     end
   end
 
   def destroy
     @question = @question.destroy
+    flash[:notice] = 'Question successfully removed'
     redirect_to action: :index
   end
 
-  def find_question
-    @question = Question.find(params[:id])
-  end
+
+
 
   protected
-  def question_params
-    params.require(:question).permit(:position, :question, :summary)
-  end
+    def question_params
+      params.require(:question).permit(:position, :question, :summary, :max_rate)
+    end
+
+    def find_question
+      @question = Question.find(params[:id])
+    end
 
 end

@@ -1,10 +1,9 @@
 class AdminController < ApplicationController
 
-#  before_action :find_admin, only: [:update, :delete, :show]
+  before_action :find_admin, only: [:edit, :update, :delete, :show]
 
   def new
-    #@admin=Admin.new
-    feedback_form
+    @admin = Admin.new
   end
 
   def create
@@ -18,17 +17,26 @@ class AdminController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
-    @admin = @admin.update(admin_params)
+
+    if @admin.update(admin_params)
+      flash[:notice] = 'Update successful'
+      redirect_to action: :index
+    end
   end
 
   def delete
     @admin = @admin.destroy
+    flash[:notice] = "#{@admin.full_name} has been removed successfully"
+    redirect_to action: :index
   end
 
   def index
-    @users = User.all
-    render 'users/index'
+    @admins = Admin.all
+    render action: :index
   end
 
   def show
@@ -47,7 +55,7 @@ class AdminController < ApplicationController
 
   private
   def admin_params
-    params.require(:admin).permit(:first_name, :last_name, :email )
+    params.require(:admin).permit(:first_name, :last_name, :email, :password )
   end
 
   def find_admin
