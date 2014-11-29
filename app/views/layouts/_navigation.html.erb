@@ -1,9 +1,9 @@
-<div class="navbar navbar-inverse" role="navigation">
+<nav class="navbar navbar-inverse" role="navigation">
   <div class="container-fluid">
     <div class="navbar-collapse collapse">
       <a class="navbar-brand">FR360</a>
 
-      <ul class="nav nav-pills" style="{display: inline}">
+      <ul class="nav nav-pills">
 
         <% #Attempt to use navigation from the application controller failed%>
         <% #navigations.each do |nav| %>
@@ -11,8 +11,13 @@
             <li role="presentation" <%= 'class=' + (self.controller.to_s.capitalize==nav.title.capitalize ? 'active':'') %> ><%= link_to nav.title , nav.permalink %> </li>
         <% end%>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>Logout</li>
+
+
+      </ul>
 
     </div><!--/.nav-collapse -->
 
   </div><!--/.container-fluid -->
-</div>
+</nav>

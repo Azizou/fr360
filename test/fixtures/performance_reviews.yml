@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: performance_reviews
+#
+#  id                  :integer          not null, primary key
+#  user_id             :integer
+#  number_of_questions :integer
+#  commented           :integer
+#  overall_rating      :integer
+#  created_at          :datetime
+#  updated_at          :datetime
+#  author_id           :integer
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined.  If you add columns to the

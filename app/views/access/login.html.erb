@@ -1,2 +1,7 @@
-<h1>Access#login</h1>
-<p>Find me in app/views/access/login.html.erb</p>
+<div class="container">
+  <%= form_tag(action: :attempt_login) %>
+  <%= label_tag(:email) %>
+  <%= text_field_tag(:email) %>
+  <%= submit_tag('Authentificate') %>
+
+</div>

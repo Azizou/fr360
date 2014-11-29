@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   get 'access/index'
 
+  post 'access/attempt_login'
 
-  root to: 'access#index'
+  root to: 'access#login'
 
   resources :performance_reviews
 

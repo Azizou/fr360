@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: questions
+#
+#  id         :integer          not null, primary key
+#  question   :text
+#  position   :integer
+#  summary    :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#  max_rate   :integer          default(10)
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined.  If you add columns to the

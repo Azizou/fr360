@@ -46,6 +46,10 @@ gem 'wysiwyg-rails', '~> 1.2.3'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'acts_as_list', '~> 0.5.0'
+
+gem 'country_select', '~> 2.1.0'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

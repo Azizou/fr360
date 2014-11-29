@@ -27,6 +27,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts_as_list (0.5.0)
+      activerecord (>= 3.0)
     annotate (2.6.5)
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
@@ -44,6 +46,11 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    countries (0.9.3)
+      currencies (~> 0.4.2)
+    country_select (2.1.0)
+      countries (~> 0.9, >= 0.9.3)
+    currencies (0.4.2)
     erubis (2.7.0)
     execjs (2.2.2)
     font-awesome-rails (4.2.0.0)
@@ -124,11 +131,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_list (~> 0.5.0)
   annotate
   autoprefixer-rails
   bcrypt (~> 3.1.7)
   bootstrap-sass (~> 3.3.1.0)
   coffee-rails (~> 4.0.0)
+  country_select (~> 2.1.0)
   font-awesome-sass (~> 4.2.0.0)
   jbuilder (~> 2.0)
   jquery-rails

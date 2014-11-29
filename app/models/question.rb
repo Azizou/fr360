@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: questions
+#
+#  id         :integer          not null, primary key
+#  question   :text
+#  position   :integer
+#  summary    :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#  max_rate   :integer          default(10)
+#
+
 class Question < ActiveRecord::Base
   has_many :feedbacks
 
