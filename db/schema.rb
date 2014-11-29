@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141127102746) do
+ActiveRecord::Schema.define(version: 20141128123628) do
 
   create_table "admins", force: true do |t|
-    t.string   "first_name", limit: 30
-    t.string   "last_name",  limit: 40
-    t.string   "email",                 default: ""
+    t.string   "first_name",      limit: 30
+    t.string   "last_name",       limit: 40
+    t.string   "email",                      default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
   create_table "feedbacks", force: true do |t|
@@ -55,8 +56,10 @@ ActiveRecord::Schema.define(version: 20141127102746) do
     t.integer  "overall_rating"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "author_id"
   end
 
+  add_index "performance_reviews", ["author_id"], name: "index_performance_reviews_on_author_id", using: :btree
   add_index "performance_reviews", ["user_id"], name: "index_performance_reviews_on_user_id", using: :btree
 
   create_table "questions", force: true do |t|

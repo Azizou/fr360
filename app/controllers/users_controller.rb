@@ -17,13 +17,12 @@ class UsersController < ApplicationController
   def update
     saved =  @user.update_attributes(user_params)
     if saved
-      flash[:notice] = "User #{@user.full_name} has been successfully added"
+      flash[:notice] = 'User has been successfully added'
       render :action => :show, id: @user.id
     else
       flash[:error] = 'Attempt to update user details failed, try again'
       render :edit
     end
-    render :nothing => true
   end
 
   def create
@@ -32,15 +31,15 @@ class UsersController < ApplicationController
       flash[:notice] = "User #{@user.full_name} has been successfully added"
       render :action => :show, id: @user.id
     else
-      flash[:error] = 'Attempt to add a new user failed, try again'
+      flash[:notice] = 'Attempt to add a new user failed, try again'
       render :new
     end
   end
 
   def destroy
     @user  = @user.destroy
-    @users = User.all
-    render :index
+    flash[:notice] = "User #{@user.full_name} has been successfully added"
+    redirect_to action: :index
   end
 
   def show

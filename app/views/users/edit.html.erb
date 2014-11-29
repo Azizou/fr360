@@ -4,7 +4,7 @@
       <div class="panel panel-info">
         <div class="panel-heading"><h4>Update user details</h4></div>
         <div class="panel-body">
-          <%= form_for @user, url: user_path(@user)  do %>
+          <%= form_for @user, url: user_path(@user)  do |f|%>
               <div class="form-group">
                 <label for="position">First Name:</label>
                 <input type="text" class="form-control" id="first_name" name="user[first_name]" placeholder="Enter user's first name " value="<%= @user.first_name %>">
@@ -18,10 +18,10 @@
                 <input type="email" class="form-control" id="email" name="user[email]" placeholder="Enter your email" value="<%= @user.email%>">
               </div>
               <div class="form-group">
-                <label for="completed">Confirmation status:</label><br>
-                <input type="text" class="form-control" id="completed" name="user[completed]" placeholder="Completion status" value="<%= @user.completed? ? 'Completed':'pending'%>">
+                <label for="completed">Confirmation status:</label> &nbsp;
+                <input type="checkbox"  id="completed" name="user[completed]" value="<%= @user.completed? ? 1:0 %>">
               </div>
-              <button type="submit" class="btn btn-default">Submit</button>
+              <%= f.submit class: 'btn btn-default' %>
           <% end %>
         </div>
       </div>

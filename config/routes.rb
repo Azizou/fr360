@@ -2,9 +2,8 @@ Rails.application.routes.draw do
 
   get 'access/index'
 
-  get 'access/login'
 
-  root to: 'home#home'
+  root to: 'access#index'
 
   resources :performance_reviews
 

@@ -8,7 +8,14 @@ class AdminController < ApplicationController
   end
 
   def create
-    @admin = Admin.create(admin_params)
+    @admin = Admin.new(admin_params)
+    if @admin.save
+      flash[:notice] = 'Admin created successfully!'
+      redirect_to action: 'index'
+    else
+      flash[:notice] = 'Unable to create admin, please retry'
+      render action: :new
+    end
   end
 
   def update

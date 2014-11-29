@@ -20,9 +20,9 @@ users = User.create([
                         {first_name: 'Ayaovi', last_name: 'Djissenou', email: 'djays@gmail.com'}
                     ])
 
-navs = Navigation.create([{title: 'Home', position: 1, permalink: '/home/home', nav_enabled: 1},
-                         { title: 'Users', position: 2, permalink: '/users/index', nav_enabled: 0},
-                         { title: 'Questions', position: 3, permalink: '/questions/index', nav_enabled:0},
+navs = Navigation.create([{title: 'Home', position: 1, permalink: '/home', nav_enabled: 1},
+                         { title: 'Users', position: 2, permalink: '/users', nav_enabled: 0},
+                         { title: 'Questions', position: 3, permalink: '/questions', nav_enabled:0},
                          {title: 'New performance review', position: 4, permalink: '/performance_reviews/new', nav_enabled:0}
                          ])
 
