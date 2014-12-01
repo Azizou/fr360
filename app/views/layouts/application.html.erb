@@ -8,13 +8,14 @@
 </head>
 <body class="back">
 
-<%= render partial: 'layouts/navigation', locals: {navigations: @navigations} %>
-    <% unless flash[:notice].blank? %>
-        <div class="label label-info">
-
-          <%= flash[:notice]%>
-        </div>
-    <% end %>
+<%= render partial: 'layouts/navigation' %>
+    <div class="container">
+        <% unless flash[:notice].blank? %>
+            <div class="label label-info">
+              <%= flash[:notice]%>
+            </div>
+        <% end %>
+    </div>
 
     <%= yield %>
 

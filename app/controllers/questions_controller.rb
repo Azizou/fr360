@@ -1,11 +1,13 @@
 class QuestionsController < ApplicationController
 
+  before_action :confirm_admin_login
   before_action   :find_question, only: [:destroy, :show, :edit, :update]
 
   def new
     @question = Question.new
     @question.position = Question.last.position + 1
   end
+
 
   def index
     @questions = Question.sorted

@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
   #refactor for actions that requires an object from it's id
+
+  before_action :confirm_user_login
   before_action :find_user, only: [:edit, :show, :update, :destroy]
 
   def index

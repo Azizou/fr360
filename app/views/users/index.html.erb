@@ -30,11 +30,13 @@
       </table>
         </div>
       </div>
+      <% if session[:email] %>
       <div class="row">
         <div class="col-md-1 col-md-offset-9">
-            <div><%= link_to 'Add A new User', {action: :new}, class: 'btn btn-info' %> </div>
+            <div> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> <%= link_to 'Add A new User', {action: :new}, class: 'btn btn-info' %> </div>
         </div>
       </div>
+          <% end %>
     </div>
 
     <div class="col-md-2">
