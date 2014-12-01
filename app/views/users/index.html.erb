@@ -20,8 +20,9 @@
             <td><%= user.first_name%></td>
             <td><%= user.last_name%></td>
             <td><%= user.email%></td>
-            <td><%= link_to 'Edit', edit_user_path(user), class: "btn btn-info" %></td>
-            <td><%= link_to 'Delete', user_path(user), class: "btn btn-danger",method: :delete, data: {confirm: 'Are you sure?'} %></td>
+            <td><%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_user_path(user), class: 'btn btn-info' %></td>
+            <td>
+							<%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe , user_path(user), class: 'btn btn-danger',method: :delete, data: {confirm: 'Are you sure?'} %></td>
             <td>
               <%= link_to 'Review', new_user_performance_review_path(user), class: 'btn btn-info' %>
             </td>

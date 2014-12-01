@@ -1,12 +1,13 @@
 <div class="container-fluid">
 
 
-  <div class="btn btn-info">
-      <%= link_to ' Back to users list', users_path , html: {class: 'btn btn-primary'}%>
-  </div>
+
   <br>
     <div class="row">
       <div class="col-md-6 col-md-offset-2">
+				<p>
+					<%= link_to ' Back to users list', users_path , class: 'btn btn-info' %>
+				</p>
         <div class="panel panel-info">
           <div class="panel-heading"><h3>Details for <%= @user.first_name.capitalize %></h3></div>
           <div class="panel-body">

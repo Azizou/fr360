@@ -1,3 +1,4 @@
+<%= error_messages_for(question) %>
 <div class="form-group">
   <label for="position">Position:</label>
   <input type="text" class="form-control" id="position" name="question[position]" placeholder="Question number e.g 3 for Question 3" value="<%= question.position.blank? ? '': question.position%>">

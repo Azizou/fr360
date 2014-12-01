@@ -2,20 +2,14 @@
     <div class="navbar-header">
       <a class="navbar-brand">FR 360</a>
     </div>
-    <div class="nav-bar-nav">
-      <ul class="nav nav-pills">
-
-        <% #Attempt to use navigation from the application controller failed%>
-        <% #navigations.each do |nav| %>
+    <div>
+      <ul class="nav navbar-nav">
         <% Navigation.all.each do |nav| %>
-            <li role="presentation"><%= link_to nav.title , nav.permalink %> </li>
+            <li role="presentation" class="<%= is_active?(nav.permalink)%>"><%= link_to nav.title , nav.permalink %> </li>
         <% end%>
       </ul>
       <ul class="nav navbar-right">
-        <li><%= link_to 'Close this session', access_logout_path %></li>
+        <li><%= link_to 'End session', access_logout_path %></li>
       </ul>
-
-    </div><!--/.nav-collapse -->
-
-  </div><!--/.container-fluid -->
+    </div>
 </nav>

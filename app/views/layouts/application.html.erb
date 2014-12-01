@@ -11,9 +11,13 @@
 <%= render partial: 'layouts/navigation' %>
     <div class="container">
         <% unless flash[:notice].blank? %>
-            <div class="label label-info">
-              <%= flash[:notice]%>
-            </div>
+				<div class="panel panel-info">
+
+					<div class="panel-heading panel-danger">
+						<h4><%= flash[:notice]%></h4>
+					</div>
+
+				</div>
         <% end %>
     </div>
 

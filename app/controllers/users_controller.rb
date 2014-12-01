@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       flash[:notice] = 'User has been successfully added'
       render :action => :show, id: @user.id
     else
-      flash[:error] = 'Attempt to update user details failed, try again'
+      #flash[:error] = 'Attempt to update user details failed, try again'
       render :edit
     end
   end
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       flash[:notice] = "User #{@user.full_name} has been successfully added"
       render :action => :show, id: @user.id
     else
-      flash[:notice] = 'Attempt to add a new user failed, try again'
+      #flash[:notice] = 'Attempt to add a new user failed, try again'
       render :new
     end
   end

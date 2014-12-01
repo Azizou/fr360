@@ -3,7 +3,7 @@
 
   <div class="panel-heading"><h3>Questions</h3></div>
 
-      <div><%= link_to 'Add a New Question', { controller: 'questions', action: :new} , class: 'btn btn-info'%> </div>
+      <div><%= link_to '<span class="glyphicon glyphicon-plus"></span> Add a New Question'.html_safe, { controller: 'questions', action: :new} , class: 'btn btn-info'%> </div>
         <br> <br>
       <table class="table table-bordered table-striped text-center">
         <tr>
