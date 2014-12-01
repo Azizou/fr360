@@ -7,11 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
- questions = Question.create([
-                                 { position: 1, summary: 'Work flow', max_rate: 5, question: 'How would you rate his work flow'},
-                                 { position: 2, summary: 'Friendliness', max_rate: 5, question: 'How would you rate his friendliness'},
-                                 { position: 3, summary: 'Dependent', max_rate: 5, question: 'How would you rate his dependency on the others'},
-                                 { position: 4, summary: 'Eating', max_rate: 2, question: 'Do you think he eat normal and healthy foods'}
+ Question.create([
+                                 { position: 1, title: 'Work', max_rate: 5, description: 'How would you rate his work flow'},
+                                 { position: 2, title: 'communication', max_rate: 5, description: 'How would you rate his friendliness'},
+                                 { position: 3, title: 'competence', max_rate: 5, description: 'How would you rate his dependency on the others'},
+                                 { position: 4, title: 'extra', max_rate: 2, description: 'Do you think he eat normal and healthy foods'}
                              ])
 
 users = User.create([
@@ -20,12 +20,9 @@ users = User.create([
                         {first_name: 'Ayaovi', last_name: 'Djissenou', email: 'djays@gmail.com'}
                     ])
 
-navs = Navigation.create([{title: 'Home', position: 1, permalink: '/home', nav_enabled: 1},
-                         { title: 'Users', position: 2, permalink: '/users', nav_enabled: 0},
-                         { title: 'Questions', position: 3, permalink: '/questions', nav_enabled:0},
-                         {title: 'New performance review', position: 4, permalink: '/performance_reviews/new', nav_enabled:0}
+navs = Navigation.create([{title: 'Home', position: 1, permalink: '/home'},
+                         { title: 'Users', position: 2, permalink: '/users'},
+                         { title: 'Questions', position: 3, permalink: '/questions'}
                          ])
-
-global = Global.create(admin: true, total_number_of_question: 10)
 
 admin = Admin.create(first_name: 'Azizou', last_name: 'Ogbone', email: 'admin@test.com', password: 'test')

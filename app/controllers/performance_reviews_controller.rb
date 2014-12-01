@@ -33,13 +33,6 @@ class PerformanceReviewsController < ApplicationController
     else
       #raise review_params.to_yaml
       flash[:notice] = 'Failed to save PR' + @performance_review.errors.full_messages.to_s
-      @user = User.find(params[:user_id])#params[:user_id])
-      @questions = Question.sorted
-      @performance_review = PerformanceReview.new
-      @performance_review.user_id = @user.id
-      Question.all.each do |question|
-        @performance_review.feedbacks.build(question_id: question.id)
-      end
       render :new
 
     end

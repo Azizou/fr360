@@ -15,7 +15,6 @@
 class PerformanceReview < ActiveRecord::Base
   belongs_to  :user
   has_many  :feedbacks
-  has_and_belongs_to_many :users, join_table: 'authorship'
   accepts_nested_attributes_for :feedbacks
 
 

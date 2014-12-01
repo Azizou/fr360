@@ -5,7 +5,6 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-    @question.position = Question.last.position + 1
   end
 
 
@@ -16,7 +15,7 @@ class QuestionsController < ApplicationController
   def update
     @old = Question.find(@question.id)
     if  @question.update(question_params)
-      flash[:notice] = "Question #{@question.position} updated successfully"
+      flash[:notice] = "Question titled #{@question.title} has been updated successfully"
       redirect_to action: :index
     else
       flash[:notice] = 'Unable to update question ensure no blank field'
@@ -53,7 +52,7 @@ class QuestionsController < ApplicationController
 
   protected
     def question_params
-      params.require(:question).permit(:position, :question, :summary, :max_rate)
+      params.require(:question).permit(:description, :title, :max_rate)
     end
 
     def find_question

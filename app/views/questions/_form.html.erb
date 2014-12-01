@@ -1,0 +1,14 @@
+<%= error_messages_for(question) %>
+
+<div class="form-group">
+  <label for="title">Summary</label>
+  <input type="text" class="form-control" id="summary" name="question[summary]" placeholder="Summary of the question or title" value="<%= question.title.blank? ? '': question.title%>">
+</div>
+<div class="form-group">
+  <label for="question">Content</label><br>
+  <textarea class="form-control" id="description" name="question[description]" placeholder="Content/Question" ><%= question.description.blank? ? '': question.description %></textarea>
+</div>
+<div class="form-group">
+  <label for="max_rate">Question</label><br>
+  <input type="text" class="form-control" id="max_rate" name="question[max_rate]" placeholder="Maximum rating" value="<%= question.max_rate.blank? ? '': question.max_rate%>">
+</div>

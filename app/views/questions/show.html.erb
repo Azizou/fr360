@@ -1,4 +1,4 @@
-<% @page_title = 'Question ' + @question.position.to_s %>
+<% @page_title = 'Question - ' + @question.title %>
 <div class="container-fluid" xmlns="http://www.w3.org/1999/html">
   <div class="row">
     <div class="col-md-5 col-md-offset-2">
@@ -7,16 +7,16 @@
 
       </div><br><br>
       <div class="panel panel-info">
-        <div class="panel-heading"><h3>Details of question <%=' ' +  @question.position.to_s %></h3></div>
+        <div class="panel-heading"><h3>Question details</h3></div>
         <div class="panel-body">
           <table class="table">
             <tr>
               <td><strong>Summary:</strong></td>
-              <td><%= @question.summary %></td>
+              <td><%= @question.title %></td>
             </tr>
             <tr>
               <td><strong>Question:</strong></td>
-              <td><%= @question.question%></td>
+              <td><%= @question.description %></td>
             </tr>
             <tr>
               <td><strong>Maximum rating:</strong></td>
