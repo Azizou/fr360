@@ -27,3 +27,5 @@ navs = Navigation.create([{title: 'Home', position: 1, permalink: '/home', nav_e
                          ])
 
 global = Global.create(admin: true, total_number_of_question: 10)
+
+admin = Admin.create(first_name: 'Azizou', last_name: 'Ogbone', email: 'admin@test.com', password: 'test')
