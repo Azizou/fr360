@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141128123628) do
+ActiveRecord::Schema.define(version: 20141130010341) do
 
   create_table "admins", force: true do |t|
     t.string   "first_name",      limit: 30
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20141128123628) do
     t.datetime "updated_at"
     t.string   "password_digest"
   end
+
+  create_table "authorship", id: false, force: true do |t|
+    t.integer "performance_review_id"
+    t.integer "user_id"
+  end
+
+  add_index "authorship", ["user_id", "performance_review_id"], name: "index_authorship_on_user_id_and_performance_review_id", using: :btree
 
   create_table "feedbacks", force: true do |t|
     t.integer  "question_id"

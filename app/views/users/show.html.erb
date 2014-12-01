@@ -1,14 +1,12 @@
 <div class="container-fluid">
 
 
-  <div  class="btn btn-default">
-    <i class="glyphicon-fast-backward">
-      <%= link_to ' Back to users list', users_path %>
-    </i>
+  <div class="btn btn-info">
+      <%= link_to ' Back to users list', users_path , html: {class: 'btn btn-primary'}%>
   </div>
   <br>
     <div class="row">
-      <div class="col-md-5 col-md-offset-2">
+      <div class="col-md-6 col-md-offset-2">
         <div class="panel panel-info">
           <div class="panel-heading"><h3>Details for <%= @user.first_name.capitalize %></h3></div>
           <div class="panel-body">
@@ -23,7 +21,7 @@
               </tr>
               <tr>
                 <td><strong>Review status:</strong></td>
-                <td><%= @user.completed? ? 'Done':'Pending' %></td>
+                <td><%= @user.completed? ? 'Yes':'No' %></td>
               </tr>
             </table>
           </div>

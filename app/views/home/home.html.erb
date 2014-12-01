@@ -3,12 +3,4 @@
   <div class="btn btn-info"> <%= link_to 'Questions Page', questions_url ,:class => 'panel-danger'%></div>
   <br /><br /><br />
   <div class="btn btn-info"><%= link_to 'Users Pages', users_path %></div>
-
-  <div class="form-group">
-    <%= form_for @user, url: {controller: :access, action: :login} do |f| %>
-      <%= f.label :email, class: 'form-control' %>
-      <%= f.text_field :email, class: 'form-control' %>
-      <%=  f.submit %>
-    <% end %>
-  </div>
 </div>

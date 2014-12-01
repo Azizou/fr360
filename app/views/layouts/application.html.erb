@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>360 Feedback | <%= @page_title %></title>
+  <title>360 Feedback <%= "| #{@page_title}" unless @page_title.blank? %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
@@ -9,7 +9,6 @@
 <body class="back">
 
 <%= render partial: 'layouts/navigation', locals: {navigations: @navigations} %>
-<div class="container">
     <% unless flash[:notice].blank? %>
         <div class="label label-info">
 
@@ -17,11 +16,8 @@
         </div>
     <% end %>
 
-
     <%= yield %>
 
     <%= render partial: 'layouts/footer' %>
-  </div>
-
 </body>
 </html>

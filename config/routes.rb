@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   get 'access/index'
+  get 'access/admin_login'
+
+  post 'access/admin_attempt_login'
 
   post 'access/attempt_login'
 

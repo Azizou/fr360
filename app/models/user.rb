@@ -13,6 +13,7 @@
 
 class User < ActiveRecord::Base
   has_many  :performance_reviews
+  has_and_belongs_to_many :performance_reviews, join_table: 'authorship'
 
   validates :first_name, presence: true
   validates :last_name, presence: true
