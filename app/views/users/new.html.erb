@@ -4,20 +4,11 @@
       <div class="panel panel-info">
         <div class="panel-heading"><h4>Add a new user</h4></div>
         <div class="panel-body">
-          <%= form_for @user, url: users_path  do %>
-              <div class="form-group">
-                <label for="position">First Name:</label>
-                <input type="text" class="form-control" id="first_name" name="user[first_name]" placeholder="Enter user's first name ">
+          <%= form_for @user, url: users_path  do |f| %>
+              <%= render partial: 'users/form', locals: {user: @user} %>
+              <div>
+                <%= f.submit('Save new user', class: 'btn btn-primary')%>
               </div>
-              <div class="form-group">
-                <label for="last_name">Last Name</label>
-                <input type="text" class="form-control" id="summary" name="user[last_name]" placeholder="Enter user's last name">
-              </div>
-              <div class="form-group">
-                <label for="email">Email:</label><br>
-                <input type="email" class="form-control" id="email" name="user[email]" placeholder="Enter your email">
-              </div>
-              <button type="submit" class="btn btn-default">Submit</button>
           <% end %>
         </div>
       </div>

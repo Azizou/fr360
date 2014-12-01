@@ -1,20 +1,18 @@
-<nav class="navbar navbar-inverse" role="navigation">
-  <div class="container-fluid">
+<nav class="navbar navbar-default" role="navigation">
     <div class="navbar-header">
-      <a class="navbar-brand">FR360</a>
-
+      <a class="navbar-brand">FR 360</a>
+    </div>
+    <div class="nav nav-bar-nav">
       <ul class="nav nav-pills">
 
         <% #Attempt to use navigation from the application controller failed%>
         <% #navigations.each do |nav| %>
         <% Navigation.all.each do |nav| %>
-            <li role="presentation" <%= 'class=' + (self.controller.to_s.capitalize==nav.title.capitalize ? 'active':'') %> ><%= link_to nav.title , nav.permalink %> </li>
+            <li role="presentation"><%= link_to nav.title , nav.permalink %> </li>
         <% end%>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>Logout</li>
-
-
+      <ul class="nav navbar-right">
+        <li><%= link_to 'Quit session', access_logout_path %></li>
       </ul>
 
     </div><!--/.nav-collapse -->

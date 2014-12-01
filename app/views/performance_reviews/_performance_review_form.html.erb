@@ -1,9 +1,0 @@
-<div class="panel-body">
-  <%= form_for @performance_review, url: performance_reviews_path , html: { class: 'form-group'} do |f| %>
-      <%= f.hidden_field :user_id, value: @user.id  %>
-      <%= f.fields_for :feedbacks do |builder| %>
-              <%= render partial: 'feedback_field',  locals: { f: builder} %>
-          <% end %><br>
-      <%= f.submit("Submit Performance review for #{@user.first_name}", class: 'btn btn-primary') %>
-  <% end %>
-</div>

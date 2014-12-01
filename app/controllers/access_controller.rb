@@ -1,5 +1,5 @@
 class AccessController < ApplicationController
-  layout 'public'
+  layout 'public' , except: :index
 
   #before_action :confirm_admin_login, except: [:login, :logout, :index]
   def index
@@ -11,9 +11,10 @@ class AccessController < ApplicationController
   end
 
   def attempt_login
-    @user_found = User.find_by(email: params[:email])
-    if @user_found
-      session[:user_id] = @user_found[:user_id]
+    user_found = User.find_by(email: params[:email])
+    if user_found
+      session[:user_id] = user_found.id
+      session[:username] = user_found.first_name.capitalize
       redirect_to controller: 'users', action: 'index'
     else
       render 'login'
@@ -25,8 +26,9 @@ class AccessController < ApplicationController
   end
 
   def admin_attempt_login
+    authorized = nil
     if params[:email].present? && params[:password].present?
-      found_admin = Admin.find_by(email: params[:email]).first
+      found_admin = Admin.where(email: params[:email]).first
       if found_admin
         authorized = found_admin.authenticate(params[:password])
       end
@@ -37,6 +39,7 @@ class AccessController < ApplicationController
         redirect_to action: 'index'
       else
         flash[:notice] = 'Invalid email/password combination'
+        render 'admin_login'
       end
     end
   end
@@ -46,13 +49,5 @@ class AccessController < ApplicationController
     session[:email] = nil
     flash[:notice] = 'Successfully logged out'
     redirect_to action: :login
-  end
-
-  def confirm_admin_login
-    unless session[:user_id]
-      flash[:notice] = 'Please log in.'
-      redirect_to(controller: :access, action: 'login')
-      return true
-    end
   end
 end

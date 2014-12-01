@@ -1,7 +1,8 @@
 <div class="container">
-  <%= form_tag(action: :attempt_login) %>
-  <%= label_tag(:email) %>
-  <%= text_field_tag(:email) %>
-  <%= submit_tag('Authentificate') %>
+    <div class="jumbotron">
+        <h3>Welcome to my <strong>360 degree Feedback </strong> web app</h3>
+        <p><a class="btn btn-primary" role="button" href="access/admin_login">Login as admin</a> </p>
+        <p><a class="btn btn-primary" role="button" href="access/user_login">Login as team member</a> </p>
+    </div>
 
 </div>

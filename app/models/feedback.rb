@@ -20,5 +20,4 @@ class Feedback < ActiveRecord::Base
   validates :question_id, presence: true
   validates :performance_review_id, presence: true
 
-
 end

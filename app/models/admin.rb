@@ -14,7 +14,7 @@
 class Admin < ActiveRecord::Base
   has_secure_password
 
-  EMAIL_REGEX = '/\A[a-z0-9-A-Z%#.]+@[a-zA-Z0-9]\.+[a-z]{2,4}\Z/i'
+  EMAIL_REGEX = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i
 
   validates :first_name, presence: true
   validates :last_name, presence: true

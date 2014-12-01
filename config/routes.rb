@@ -2,25 +2,23 @@ Rails.application.routes.draw do
 
   get 'access/index'
   get 'access/admin_login'
+  get 'access/user_login'
+  get 'access/logout'
 
   post 'access/admin_attempt_login'
-
   post 'access/attempt_login'
 
   root to: 'access#login'
 
-  resources :performance_reviews
-
-  resources :users
+  resources :users do
+    resources :performance_reviews
+  end
 
   resources :admin
 
   resources :home
 
   resources  :questions
-
-  #get '../../assets/images/background.jpg'
-
 
 
   # The priority is based upon order of creation: first created -> highest priority.

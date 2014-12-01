@@ -1,6 +1,6 @@
 
 <h3> Question <%= f.object.question.position.to_s + ': ' %> </h3>
-<div class="panel panel-heading panel-primary"><h5><%= f.object.question.question %></h5></div>
+<div class="panel-heading"><h5><%= f.object.question.question %></h5></div>
 <%= f.hidden_field :question_id, value: f.object.question.id %>
 <%= render partial: 'comment_field' , locals: {f: f}%>
 <%= render partial: 'radio_buttons', locals: {f: f, max: f.object.question.max_rate} %>

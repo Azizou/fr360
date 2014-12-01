@@ -1,25 +1,33 @@
 class PerformanceReviewsController < ApplicationController
+
+  before_action :confirm_user_login
+
   def index
-    @users = User.all
-    render 'users/index'
+    @user = User.find(params[:user_id])
+    render 'index'
   end
 
   def new
-    @user = User.first
+
+    #raise review_params.to_yaml
+
+    @user = User.find(params[:user_id])#params[:user_id])
     @questions = Question.sorted
     @performance_review = PerformanceReview.new
     @performance_review.user_id = @user.id
     Question.all.each do |question|
       @performance_review.feedbacks.build(question_id: question.id)
     end
+
   end
 
   def create
     #raise review_params.to_yaml
-
+    @reviewer = User.find(params[:reviewer_id]).first
     @performance_review = PerformanceReview.new(review_params)
     if @performance_review.save
       flash[:notice] = 'Successfully saved PR'
+      @reviewer << @performance_review
       @users = User.all
       render 'users/index'
     else
@@ -32,6 +40,7 @@ class PerformanceReviewsController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:user_id])
     render :'performance_reviews/edit'
   end
 

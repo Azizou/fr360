@@ -1,6 +1,7 @@
 class AdminController < ApplicationController
 
   before_action :find_admin, only: [:edit, :update, :delete, :show]
+  before_action :confirm_admin_login
 
   def new
     @admin = Admin.new
