@@ -1,22 +1,18 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-3 ">
+    <div class="col-md-6 col-md-offset-2">
       <div class="panel panel-primary">
         <div class="panel-heading"><h4>Logged in as <%= session[:username] %></h4></div>
         <div class="panel-body">
           <table class="table table-bordered table-striped">
             <tr>
               <th>Team Member</th>
-              <th>Completed</th>
               <th>View PR</th>
             </tr>
             <% User.all.each do |user|%>
             <tr>
               <td>
                 <%= user.full_name %>
-              </td>
-              <td>
-                <%= user.completed? ? 'Done':'In progress' %>
               </td>
               <td>
                 <%= link_to 'Edit', new_user_performance_review_path(user.id) %>

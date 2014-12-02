@@ -13,6 +13,7 @@
 
 class User < ActiveRecord::Base
   has_many  :performance_reviews
+  has_many :reviewers
 
   EMAIL_REGEX = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i
 

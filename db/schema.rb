@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141201212150) do
+ActiveRecord::Schema.define(version: 20141202053208) do
 
   create_table "admins", force: true do |t|
     t.string   "first_name",      limit: 50
@@ -66,6 +66,15 @@ ActiveRecord::Schema.define(version: 20141201212150) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "reviewers", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "performance_review_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reviewers", ["performance_review_id", "user_id"], name: "index_reviewers_on_performance_review_id_and_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name",  limit: 50

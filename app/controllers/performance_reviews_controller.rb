@@ -25,9 +25,10 @@ class PerformanceReviewsController < ApplicationController
     #raise review_params.to_yaml
     @reviewer = User.find(session[:user_id])
     @performance_review = PerformanceReview.new(review_params)
+    @performance_review.user_id = params[:user_id]
     if @performance_review.save
       flash[:notice] = 'Successfully saved PR'
-      @reviewer.performance_reviews << @performance_review
+      @reviewer.reviewers << @performance_review
       @users = User.all
       render 'users/index'
     else
@@ -53,6 +54,6 @@ class PerformanceReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:performance_review).permit(:user_id, feedbacks_attributes: [:rating, :comment, :question_id])
+    params.require(:performance_review).permit(feedbacks_attributes: [:rating, :comment, :question_id])
   end
 end
