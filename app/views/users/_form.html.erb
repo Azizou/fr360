@@ -1,6 +1,4 @@
 <%= error_messages_for(@user) %>
-
-
 <div class="form-group">
   <label for="position">First Name:</label>
   <input type="text" class="form-control" id="first_name" name="user[first_name]" placeholder="Enter user's first name " value="<%= user.first_name %>">
@@ -12,8 +10,4 @@
 <div class="form-group">
   <label for="email">Email:</label><br>
   <input type="email" class="form-control" id="email" name="user[email]" placeholder="Enter your email" value="<%= user.email%>">
-</div>
-<div class="form-group">
-  <label for="completed">Confirmation status:</label> &nbsp;
-  <input type="checkbox"  id="completed" name="user[completed]" value="<%= user.completed? ? 1:0 %>">
 </div>

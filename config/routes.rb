@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+
   get 'access/index'
   get 'access/admin_login'
   get 'access/user_login'
@@ -19,6 +21,10 @@ Rails.application.routes.draw do
   resources :home
 
   resources  :questions
+
+  resources :questionnaires do
+    resources  :questions
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -2,13 +2,12 @@
 #
 # Table name: navigations
 #
-#  id          :integer          not null, primary key
-#  title       :string(25)
-#  position    :integer
-#  permalink   :string(255)
-#  created_at  :datetime
-#  updated_at  :datetime
-#  nav_enabled :boolean
+#  id         :integer          not null, primary key
+#  title      :string(40)
+#  position   :integer
+#  permalink  :string(255)
+#  created_at :datetime
+#  updated_at :datetime
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

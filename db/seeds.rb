@@ -8,10 +8,10 @@
 
 
  Question.create([
-                                 { position: 1, title: 'Work', max_rate: 5, description: 'How would you rate his work flow'},
-                                 { position: 2, title: 'communication', max_rate: 5, description: 'How would you rate his friendliness'},
-                                 { position: 3, title: 'competence', max_rate: 5, description: 'How would you rate his dependency on the others'},
-                                 { position: 4, title: 'extra', max_rate: 2, description: 'Do you think he eat normal and healthy foods'}
+                                 { title: 'Work', max_rate: 5, description: 'How would you rate his work flow'},
+                                 { title: 'communication', max_rate: 5, description: 'How would you rate his friendliness'},
+                                 { title: 'competence', max_rate: 5, description: 'How would you rate his dependency on the others'},
+                                 { title: 'extra', max_rate: 2, description: 'Do you think he eat normal and healthy foods'}
                              ])
 
 users = User.create([

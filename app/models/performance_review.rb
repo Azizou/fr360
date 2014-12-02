@@ -2,14 +2,10 @@
 #
 # Table name: performance_reviews
 #
-#  id                  :integer          not null, primary key
-#  user_id             :integer
-#  number_of_questions :integer
-#  commented           :integer
-#  overall_rating      :integer
-#  created_at          :datetime
-#  updated_at          :datetime
-#  author_id           :integer
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  created_at :datetime
+#  updated_at :datetime
 #
 
 class PerformanceReview < ActiveRecord::Base

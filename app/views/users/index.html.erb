@@ -8,7 +8,7 @@
         <div>
           <%= pluralize(@users.count, 'user') +' found'%>
         </div>
-      <table class="table table-bordered table-striped">
+      <table class="table table-bordered table-striped text-center">
         <tr>
           <th class="text-center">First Name</th>
           <th class="text-center">Last Name</th>
@@ -34,7 +34,7 @@
       <% if session[:email] %>
       <div class="row">
         <div class="col-md-1 col-md-offset-9">
-            <div> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> <%= link_to 'Add A new User', {action: :new}, class: 'btn btn-info' %> </div>
+            <div><%= link_to 'Add A new User', {action: :new}, class: 'btn btn-info' %></div>
         </div>
       </div>
           <% end %>

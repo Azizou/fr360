@@ -2,13 +2,13 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  first_name :string(30)
-#  last_name  :string(40)
-#  email      :string(255)      default("")
-#  completed  :boolean          default(FALSE)
-#  created_at :datetime
-#  updated_at :datetime
+#  id          :integer          not null, primary key
+#  first_name  :string(50)
+#  last_name   :string(100)
+#  email       :string(255)
+#  description :text
+#  created_at  :datetime
+#  updated_at  :datetime
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

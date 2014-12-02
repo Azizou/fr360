@@ -3,7 +3,7 @@
       <a class="navbar-brand">FR 360</a>
     </div>
     <div>
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav nav-pills">
         <% Navigation.all.each do |nav| %>
             <li role="presentation" class="<%= is_active?(nav.permalink)%>"><%= link_to nav.title , nav.permalink %> </li>
         <% end%>

@@ -3,15 +3,17 @@
 # Table name: admins
 #
 #  id              :integer          not null, primary key
-#  first_name      :string(30)
-#  last_name       :string(40)
-#  email           :string(255)      default("")
+#  first_name      :string(50)
+#  last_name       :string(100)
+#  admin           :text
+#  email           :string(255)
+#  password_digest :string(255)
 #  created_at      :datetime
 #  updated_at      :datetime
-#  password_digest :string(255)
 #
 
 class Admin < ActiveRecord::Base
+  has_many :questionnaires
   has_secure_password
 
   EMAIL_REGEX = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i
