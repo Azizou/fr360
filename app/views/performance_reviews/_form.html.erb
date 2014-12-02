@@ -1,7 +1,6 @@
 
-begin<%= error_messages_for(f.object) %> end
+<%= error_messages_for(f.object) %>
 
-<%= f.hidden_field :user_id, value: session[:user_id] %>
 <%= f.fields_for :feedbacks do |builder| %>
     <%= render partial: 'feedback_field',  locals: { f: builder} %>
 <% end %><br>

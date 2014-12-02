@@ -10,6 +10,7 @@
           </h4>
         </div>
         <div class="panel-body">
+					<% %>
           <%= form_tag(action: :attempt_login)%>
           <%= label_tag :email,'Email address', class: 'form-label' %>
           <%= text_field_tag :email, '', placeholder: 'Enter your email' , class: 'form-control'%><br>

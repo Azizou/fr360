@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  devise_for :users
   get 'access/index'
   get 'access/admin_login'
   get 'access/user_login'
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
     resources :performance_reviews
   end
 
-  resources :admin
+  resources :admins
 
   resources :home
 

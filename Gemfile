@@ -14,7 +14,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
-gem 'pg'
+gem 'pg', '~> 0.17.1'   #POstgresql db
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -42,13 +43,15 @@ gem 'font-awesome-sass', '~> 4.2.0.0'
 
 #wysiwyg-rails
 
+gem 'devise', '~> 3.4.1'
+
 gem 'wysiwyg-rails', '~> 1.2.3'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'acts_as_list', '~> 0.5.0'
+#gem 'acts_as_list', '~> 0.5.0'
 
-gem 'country_select', '~> 2.1.0'
+#gem 'country_select', '~> 2.1.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'

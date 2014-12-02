@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
 
+  layout 'admin'
+
   before_action :confirm_admin_login
   before_action   :find_question, only: [:destroy, :show, :edit, :update]
 

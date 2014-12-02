@@ -4,6 +4,6 @@
 
 
 <%= form_for @admin , url: {action: 'create'} do |f|%>
-    <%= render partial: 'admin/admin_form', locals: {f: f }%>
+    <%= render partial: 'admins/admin_form', locals: {f: f }%>
     <%= f.submit %>
 <% end %>

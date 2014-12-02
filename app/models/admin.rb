@@ -12,7 +12,7 @@
 #  updated_at      :datetime
 #
 
-class Admin < ActiveRecord::Base
+class Admin < User
   has_many :questionnaires
   has_secure_password
 

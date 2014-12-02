@@ -1,4 +1,6 @@
-class AdminController < ApplicationController
+class AdminsController < ApplicationController
+
+  layout 'admin'
 
   before_action :find_admin, only: [:edit, :update, :delete, :show]
   before_action :confirm_admin_login
@@ -58,8 +60,8 @@ class AdminController < ApplicationController
   def admin_params
     params.require(:admin).permit(:first_name, :last_name, :email, :password )
   end
-
-  def find_admin
-    @admin = Admin.find(params[:id])
-  end
+  private
+    def find_admin
+      @admin = Admin.find(params[:id])
+    end
 end

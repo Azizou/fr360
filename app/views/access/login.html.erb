@@ -1,8 +1,16 @@
 <div class="container">
     <div class="jumbotron">
-        <h3>Welcome to my <strong>360 degree Feedback </strong> web app</h3>
-        <p><a class="btn btn-primary" role="button" href="access/admin_login">Login as admin</a> </p>
-        <p><a class="btn btn-primary" role="button" href="access/user_login">Login as team member</a> </p>
+        <h3>FR Application<strong>360 degree Feedback </strong>ergo</h3>
+				<div class="well-lg">
+					<%=  link_to 'Login as admin', access_admin_login_url, class: 'btn btn-primary' %>
+					</div>
+					<div class="well-lg">
+						<%=  link_to 'Member login', access_user_login_path , class: 'btn btn-primary' %>
+					</div>
     </div>
+
+	<h1>Users Application</h1>
+
+
 
 </div>

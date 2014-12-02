@@ -4,9 +4,9 @@ class CreateUsers < ActiveRecord::Migration
 
       t.string    :first_name,  limit: 50
       t.string    :last_name,   limit: 100
-      t.string    :email
+      t.string    :email                           #//devise will take care of this
       t.text      :description,  limit: 500
-
+      t.string    :password_digest
       t.timestamps
     end
   end

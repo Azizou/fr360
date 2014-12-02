@@ -23,12 +23,16 @@ class PerformanceReviewsController < ApplicationController
 
   def create
     #raise review_params.to_yaml
-    @reviewer = User.find(session[:user_id])
+    #@reviewer = User.find(session[:user_id])
+
+    # instantiate a new record
     @performance_review = PerformanceReview.new(review_params)
-    @performance_review.user_id = params[:user_id]
+    @performance_review.reviewer_id = session[:user_id]
+    @performance_review.reviewee_id = params[:user_id]
+
+    #attempt to save if
     if @performance_review.save
       flash[:notice] = 'Successfully saved PR'
-      @reviewer.reviewers << @performance_review
       @users = User.all
       render 'users/index'
     else

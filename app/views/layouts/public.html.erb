@@ -7,14 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="back">
-    <div id="navbar" class="nav navbar-default">
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Login as a team member', {controller: :access, action: :user_login} %></li>
 
-        <li><%= link_to 'Login as admin', {controller: :access, action: :admin_login} %></li>
-      </ul>
-    </div>
+	<% [:notice, :error, :alert, :success].each do |level| %>
+		<% unless flash[level].blank? %>
+			<div class="<%= flash_class(level) %>">
+				<%= content_tag :span, flash[level] %>
+			</div>
+		<% end %>
+	<% end %>
 
-<%= yield %>
+	<%= yield %>
 
 </body>
