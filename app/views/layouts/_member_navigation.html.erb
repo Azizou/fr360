@@ -1,0 +1,16 @@
+<nav class="navbar navbar-default" role="navigation">
+	<div class="navbar-header">
+		<a class="navbar-brand">FR 360</a>
+	</div>
+	<div>
+		<ul class="nav navbar-nav nav-pills">
+			<li role="presentation" class="<%= is_active?('/members')%>"><%= link_to "Home" ,'/members' %> </li>
+			<li role="presentation" class="<%= is_active?('/members/show')%>"><%= link_to "Feedback" ,'/members/show' %> </li>
+			<li role="presentation" class="<%= is_active?('/members/edit')%>"><%= link_to "Settings" ,'/members/edit' %> </li>
+		</ul>
+		<ul class="nav navbar-right nav-navbar">
+			<li role="presentation" >Logged in as <%= current_user.full_name %></li>
+			<li role="presentation"><%= link_to 'End session', access_logout_path %></li>
+		</ul>
+	</div>
+</nav>

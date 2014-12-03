@@ -9,13 +9,8 @@ class PerformanceReviewsController < ApplicationController
   end
 
   def new
-
-    #raise review_params.to_yaml
-
     @user = User.find(params[:user_id])#params[:user_id])
-    #@questions = Question.sorted
     @performance_review = PerformanceReview.new
-    #@performance_review.user_id = @user.id
     Question.all.each do |question|
       @performance_review.feedbacks.build(question_id: question.id)
     end
