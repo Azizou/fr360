@@ -1,19 +1,26 @@
 Rails.application.routes.draw do
 
-  root to: 'home#home'
 
-  resources :performance_reviews
 
-  resources :users
+  get 'access/logout'
+  post 'access/create'
+  get 'access/new'
 
-  resources :admin
+  root to: 'access#new'
+
+  resources :users do
+    resources :performance_reviews
+  end
+
+  resources :admins
 
   resources :home
 
   resources  :questions
 
-  #get '../../assets/images/background.jpg'
-
+  resources :questionnaires do
+    resources  :questions
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

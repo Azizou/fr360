@@ -1,0 +1,4 @@
+<% @page_title='New questionnaire' %>
+<%= form_for @questionnaire, url: questionnaires_path do |f| %>
+<%= render partial: 'questionnaires/form', locals:{ f: f} %>
+<% end %>

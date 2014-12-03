@@ -1,9 +1,10 @@
 /*
- *= require froala_editor.min.css
- *= require froala_style.min.css
  *= require font-awesome
  */
 
+.field_with_errors{
+	border: 2px solid red;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {

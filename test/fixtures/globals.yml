@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: globals
+#
+#  id                       :integer          not null, primary key
+#  admin                    :boolean          default(FALSE)
+#  total_number_of_question :integer
+#  created_at               :datetime
+#  updated_at               :datetime
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined.  If you add columns to the

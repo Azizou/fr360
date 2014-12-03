@@ -11,15 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141127102746) do
-
-  create_table "admins", force: true do |t|
-    t.string   "first_name", limit: 30
-    t.string   "last_name",  limit: 40
-    t.string   "email",                 default: ""
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20141201212150) do
 
   create_table "feedbacks", force: true do |t|
     t.integer  "question_id"
@@ -32,47 +24,52 @@ ActiveRecord::Schema.define(version: 20141127102746) do
 
   add_index "feedbacks", ["question_id", "performance_review_id"], name: "index_feedbacks_on_question_id_and_performance_review_id", using: :btree
 
-  create_table "globals", force: true do |t|
-    t.boolean  "admin",                    default: false
-    t.integer  "total_number_of_question"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "navigations", force: true do |t|
-    t.string   "title",       limit: 25
+    t.string   "title",      limit: 50
     t.integer  "position"
     t.string   "permalink"
+    t.boolean  "admin",                 default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "nav_enabled"
   end
 
   create_table "performance_reviews", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "number_of_questions"
-    t.integer  "commented"
-    t.integer  "overall_rating"
+    t.integer  "reviewer_id"
+    t.integer  "reviewee_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "performance_reviews", ["user_id"], name: "index_performance_reviews_on_user_id", using: :btree
+  add_index "performance_reviews", ["reviewee_id"], name: "index_performance_reviews_on_reviewee_id", using: :btree
+  add_index "performance_reviews", ["reviewer_id"], name: "index_performance_reviews_on_reviewer_id", using: :btree
+
+  create_table "questionnaires", force: true do |t|
+    t.string   "title"
+    t.integer  "admin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "questionnaires", ["admin_id"], name: "index_questionnaires_on_admin_id", using: :btree
 
   create_table "questions", force: true do |t|
-    t.text     "question"
-    t.integer  "position"
-    t.string   "summary"
+    t.text     "description"
+    t.string   "title"
+    t.integer  "max_rate"
+    t.integer  "questionnaire_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "max_rate",   default: 10
   end
 
+  add_index "questions", ["questionnaire_id"], name: "index_questions_on_questionnaire_id", using: :btree
+
   create_table "users", force: true do |t|
-    t.string   "first_name", limit: 30
-    t.string   "last_name",  limit: 40
-    t.string   "email",                 default: ""
-    t.boolean  "completed",             default: false
+    t.string   "first_name",      limit: 50
+    t.string   "last_name",       limit: 100
+    t.string   "email"
+    t.text     "description"
+    t.string   "password_digest"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

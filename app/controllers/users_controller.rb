@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
 
   #refactor for actions that requires an object from it's id
+
+  layout 'admin'
+
+ # before_action :confirm_user_login
   before_action :find_user, only: [:edit, :show, :update, :destroy]
 
   def index
@@ -15,16 +19,14 @@ class UsersController < ApplicationController
   end
 
   def update
-
     saved =  @user.update(user_params)
     if saved
-      flash[:notice] = "User #{@user.full_name} has been successfully added"
+      flash[:notice] = 'User has been successfully added'
       render :action => :show, id: @user.id
     else
-      flash[:error] = 'Attempt to update user details failed, try again'
+      #flash[:error] = 'Attempt to update user details failed, try again'
       render :edit
     end
-    render :nothing => true
   end
 
   def create
@@ -33,15 +35,15 @@ class UsersController < ApplicationController
       flash[:notice] = "User #{@user.full_name} has been successfully added"
       render :action => :show, id: @user.id
     else
-      flash[:error] = 'Attempt to add a new user failed, try again'
+      #flash[:notice] = 'Attempt to add a new user failed, try again'
       render :new
     end
   end
 
   def destroy
     @user  = @user.destroy
-    @users = User.all
-    render :index
+    flash[:notice] = "User #{@user.full_name} has been successfully added"
+    redirect_to action: :index
   end
 
   def show

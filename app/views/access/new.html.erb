@@ -1,0 +1,20 @@
+<% @page_title = 'Login' %>
+<div class="container">
+	<p>&nbsp;</p>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel panel-info">
+				<div class="panel-heading"><h3>Login</h3></div>
+				<%= error_messages_for(@object)%>
+				<div class="panel-body">
+					<%= form_tag(action: :create)%>
+					<%= label_tag :email ,'Email address:',class: 'form-label'%>
+					<%= text_field_tag :email,'',placeholder: 'Enter your email here',class: 'form-control' %><br>
+					<p><%= label_tag :password,'Password:',class: 'form-label' %>
+						<%= password_field_tag :password,'',class: 'form-control', placeholder: 'Enter your password here..' %></p>
+					<p><%= submit_tag('Login', class: 'btn btn-info')%></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

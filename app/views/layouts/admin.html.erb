@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>360 Feedback <%= "| #{@page_title}" unless @page_title.blank? %></title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+	<%= csrf_meta_tags %>
+</head>
+<body class="back">
+
+<%= render partial: 'layouts/admin_navigation' %>
+<div class="container">
+	<% unless flash[:notice].blank? %>
+		<div class="panel panel-info">
+
+			<div class="panel-heading panel-danger">
+				<h4><%= flash[:notice]%></h4>
+			</div>
+
+		</div>
+	<% end %>
+</div>
+
+<%= yield %>
+
+<%= render partial: 'layouts/footer' %>
+</body>
+</html>

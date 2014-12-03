@@ -1,11 +1,13 @@
+<% @page_title = 'Question - New' %>
+
 <div class="container">
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
       <div class="panel panel-info">
-        <div class="panel-heading"><h4>Add a new question</h4></div>
+        <div class="panel-heading"><h4> Add a new question</h4></div>
         <div class="panel-body">
           <%= form_for @question, url: questions_path  do |ff|%>
-            <%= render partial: 'question_form', locals: {question: @question} %>
+            <%= render partial: 'form', locals: {question: @question} %>
             <%= ff.submit('Save question', class: 'btn btn-primary')%>
           <% end %>
         </div>

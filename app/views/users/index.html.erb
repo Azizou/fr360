@@ -1,37 +1,50 @@
 <div class=" container">
 
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-10 col-md-offset-1">
+			<% if @users.count==0 %>
+				<div class="alert alert-info">No user in the db </div>
+			<% else %>
+
+
       <div class="panel panel-info">
-        <div class="panel-heading"><h3>Users page</h3></div>
+        <div class="panel-heading"><h3>List of users</h3></div>
       <div class="panel-body">
-      <table class="table table-bordered table-striped">
+        <div>
+          <%= pluralize(@users.count, 'user') +' found'%>
+        </div>
+      <table class="table table-bordered table-striped text-center">
         <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email</th>
-          <th>Confirmation Status</th>
-          <th colspan="3">Actions</th>
+          <th class="text-center">First Name</th>
+          <th class="text-center">Last Name</th>
+          <th class="text-center">Email</th>
+          <th colspan="3" class="text-center">Actions</th>
         </tr>
         <% @users.each do |user| %>
         <tr>
             <td><%= user.first_name%></td>
             <td><%= user.last_name%></td>
             <td><%= user.email%></td>
-            <td><%= user.completed? ? 'Completed':'pending' %></td>
-            <td><%= link_to 'Show', user_path(user) %></td>
-            <td><%= link_to 'Edit', edit_user_path(user) %></td>
-            <td><%= link_to 'Delete', user_path(user), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+            <td><%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_user_path(user), class: 'btn btn-info' %></td>
+            <td>
+							<%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe , user_path(user), class: 'btn btn-danger',method: :delete, data: {confirm: 'Are you sure?'} %></td>
+            <td>
+              <%= link_to 'Review', new_user_performance_review_path(user), class: 'btn btn-info' %>
+            </td>
         </tr>
         <% end %>
       </table>
         </div>
       </div>
+			<% end %>
+
+      <% if session[:email] %>
       <div class="row">
         <div class="col-md-1 col-md-offset-9">
-            <div class="btn btn-info"><%= link_to 'Add A new User',{ controller: 'users', action: :new} %> </div>
+            <div><%= link_to 'Add A new User', {action: :new}, class: 'btn btn-info' %></div>
         </div>
       </div>
+          <% end %>
     </div>
 
     <div class="col-md-2">
