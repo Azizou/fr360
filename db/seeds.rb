@@ -14,15 +14,16 @@
                                  { title: 'extra', max_rate: 2, description: 'Do you think he eat normal and healthy foods'}
                              ])
 
-users = User.create([
-                        {first_name: 'Azizou', last_name: 'Ogbone', email: 'ogboneazizou@gmail.com'},
-                        {first_name: 'Claude', last_name: 'Piessou', email: 'pcladius1@gmail.com'},
-                        {first_name: 'Ayaovi', last_name: 'Djissenou', email: 'djays@gmail.com'}
+User.create([
+                        {first_name: 'Azizou', last_name: 'Ogbone', email: 'ogboneazizou@gmail.com', password: 'test'},
+                        {first_name: 'Claude', last_name: 'Piessou', email: 'pcladius1@gmail.com', password: 'test'},
+                        {first_name: 'Ayaovi', last_name: 'Djissenou', email: 'djays@gmail.com', password: 'test'}
                     ])
 
-navs = Navigation.create([{title: 'Home', position: 1, permalink: '/home'},
-                         { title: 'Users', position: 2, permalink: '/users'},
-                         { title: 'Questions', position: 3, permalink: '/questions'}
+Navigation.create([{title: 'Home', position: 1, permalink: '/home'},
+                         { title: 'Users', position: 2, permalink: '/users', admin: true},
+                         { title: 'Questions', position: 3, permalink: '/questions', admin:true},
+                         { title: 'Dashboard', position: 1, permalink: '/admin/index', admin:true}
                          ])
 
-admin = Admin.create(first_name: 'Azizou', last_name: 'Ogbone', email: 'admin@test.com', password: 'test')
+Admin.create(first_name: 'Azizou', last_name: 'Ogbone', email: 'admin@test.com', password: 'test')

@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
 
   layout 'admin'
 
-  before_action :confirm_admin_login
+  before_action :is_admin?
   before_action   :find_question, only: [:destroy, :show, :edit, :update]
 
   def new
@@ -15,15 +15,13 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @old = Question.find(@question.id)
     if  @question.update(question_params)
-      flash[:notice] = "Question titled #{@question.title} has been updated successfully"
+      flash[:notice] = 'Question has been updated successfully'
       redirect_to action: :index
     else
       flash[:notice] = 'Unable to update question ensure no blank field'
       render :edit
     end
-
   end
 
   def show

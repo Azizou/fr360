@@ -2,14 +2,9 @@ Rails.application.routes.draw do
 
 
 
-  devise_for :users
-  get 'access/index'
-  get 'access/admin_login'
-  get 'access/user_login'
   get 'access/logout'
 
-  post 'access/admin_attempt_login'
-  post 'access/attempt_login'
+  post 'access/create'
 
   root to: 'access#login'
 

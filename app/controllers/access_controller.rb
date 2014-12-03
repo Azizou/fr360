@@ -1,7 +1,45 @@
 class AccessController < ApplicationController
-  layout 'public' , except: :index
+
+  layout 'public'
+  
+  def new
+    @login = Login.new(params)
+  end
+
+  def create
+    # Only bother the database if an email and a password are given
+    if params[:email].present? && params[:password].present?
+      login = Login.new(params)
+
+      if login.id?
+        session[:user_id] = login.id
+        if User.find(session[:id]).is_type?('Admin') #.is_type?('Admin')
+          redirect_to admins_path and return
+        else
+          redirect_to users_path and return
+        end
+      else
+        flash[:error] = 'Wrong email/password combination'
+        render 'login'
+      end
+    else
+      flash[:error] = 'Please enter your email and password'
+      render 'login'
+    end
+  end
+
+
+
+  def logout
+    session[:user_id] = nil
+    session[:email] = nil
+    flash[:notice] = 'Successfully logged out'
+    redirect_to action: :new
+  end
 
   #before_action :confirm_admin_login, except: [:login, :logout, :index]
+
+=begin
   def index
     #intro page, like the admin dashboard
   end
@@ -16,7 +54,13 @@ class AccessController < ApplicationController
     #login form
   end
 
+
   def attempt_login
+    user = User.find_by
+
+
+
+
     user_found = User.find_by(email: params[:email])
     if user_found
       session[:user_id] = user_found.id
@@ -31,7 +75,7 @@ class AccessController < ApplicationController
     render 'admin_login'
   end
 
-  def admin_attempt_login
+  def attempt_login
     authorized = nil
     if params[:email].present? && params[:password].present?
       found_admin = Admin.find_by(email: params[:email])
@@ -49,11 +93,5 @@ class AccessController < ApplicationController
       end
     end
   end
-
-  def logout
-    session[:user_id] = nil
-    session[:email] = nil
-    flash[:notice] = 'Successfully logged out'
-    redirect_to action: :login
-  end
+=end
 end

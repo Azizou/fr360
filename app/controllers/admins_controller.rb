@@ -3,19 +3,20 @@ class AdminsController < ApplicationController
   layout 'admin'
 
   before_action :find_admin, only: [:edit, :update, :delete, :show]
-  before_action :confirm_admin_login
+  before_action :is_admin?
 
   def new
     @admin = Admin.new
+    render 'new'
   end
 
   def create
     @admin = Admin.new(admin_params)
     if @admin.save
-      flash[:notice] = 'Admin created successfully!'
+      flash[:notice] = 'A new admin has been created successfully!'
       redirect_to action: 'index'
     else
-      flash[:notice] = 'Unable to create admin, please retry'
+      flash[:error] = 'Unable to create admin, please retry'
       render action: :new
     end
   end
@@ -39,7 +40,7 @@ class AdminsController < ApplicationController
 
   def index
     @admins = Admin.all
-    render action: :index
+    render  'index'
   end
 
   def show

@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string    :email                           #//devise will take care of this
       t.text      :description,  limit: 500
       t.string    :password_digest
+      t.string    :type
       t.timestamps
     end
   end
