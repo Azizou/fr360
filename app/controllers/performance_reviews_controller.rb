@@ -38,7 +38,7 @@ class PerformanceReviewsController < ApplicationController
       render 'users/index'
     else
       #raise review_params.to_yaml
-      flash[:notice] = 'Failed to save PR'
+      flash[:error] = 'Failed to save PR'
       render :new
 
     end
@@ -49,7 +49,8 @@ class PerformanceReviewsController < ApplicationController
 
   def edit
     @user = User.find(params[:user_id])
-    render :'performance_reviews/edit'
+    @performance_review = PerformanceReview.find(params[:id])
+    render :'edit'
   end
 
   def update
