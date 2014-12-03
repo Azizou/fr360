@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   def confirm_user_login
     unless logged_in?
       flash[:notice] = 'You need to open up a session using your email  before continuing.'
-      redirect_to(controller: :access, action: :new)
+      redirect_to
       true
     end
   end

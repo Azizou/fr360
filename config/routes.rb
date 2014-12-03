@@ -3,10 +3,10 @@ Rails.application.routes.draw do
 
 
   get 'access/logout'
-
   post 'access/create'
+  get 'access/new'
 
-  root to: 'access#login'
+  root to: 'access#new'
 
   resources :users do
     resources :performance_reviews

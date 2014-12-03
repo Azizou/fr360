@@ -1,6 +1,7 @@
 class PerformanceReviewsController < ApplicationController
 
-  before_action :confirm_user_login
+  before_action :logged_in?
+  before_action :is_admin?, only: :edit
 
   def index
     @user = User.find(params[:user_id])
@@ -37,7 +38,7 @@ class PerformanceReviewsController < ApplicationController
       render 'users/index'
     else
       #raise review_params.to_yaml
-      flash[:notice] = 'Failed to save PR' + @performance_review.errors.full_messages.to_s
+      flash[:notice] = 'Failed to save PR'
       render :new
 
     end

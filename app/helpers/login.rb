@@ -14,12 +14,13 @@ class Login
 		if user && user.authenticate(password)
 			@id = user.id
 		end
+	end
 
-		def self.save
-			@id =  create(self.email, self.password)
-			unless @id
-				false
-			end
+
+	def self.save
+		@id =  create(self.email, self.password)
+		unless @id
+			false
 		end
 	end
 end
