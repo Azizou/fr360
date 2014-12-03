@@ -21,11 +21,11 @@ class AccessController < ApplicationController
         end
       else
         flash[:error] = 'Wrong email/password combination'
-        render 'new'
+        redirect_to root_path
       end
     else
       flash[:error] = 'Please login to proceed'
-      redirect_to action: :new
+      redirect_to root_path
     end
   end
 
@@ -34,7 +34,7 @@ class AccessController < ApplicationController
   def logout
     session[:user_id] = nil
     flash[:notice] = 'You are now logged out'
-    render 'new'
+    redirect_to root_path
   end
 
   private

@@ -34,17 +34,17 @@
         </tr>
         <% end %>
       </table>
+
+				<% if is_admin? %>
+					<div class="row">
+						<div class="col-md-1">
+							<div><%= link_to 'Add A new User', {action: :new}, class: 'btn btn-info' %></div>
+						</div>
+					</div>
+				<% end %>
         </div>
       </div>
 			<% end %>
-
-      <% if session[:email] %>
-      <div class="row">
-        <div class="col-md-1 col-md-offset-9">
-            <div><%= link_to 'Add A new User', {action: :new}, class: 'btn btn-info' %></div>
-        </div>
-      </div>
-          <% end %>
     </div>
 
     <div class="col-md-2">

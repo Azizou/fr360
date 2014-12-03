@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   layout 'admin'
 
- # before_action :confirm_user_login
+  before_action :logged_in?
   before_action :find_user, only: [:edit, :show, :update, :destroy]
 
   def index
@@ -58,6 +58,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :completed)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 end

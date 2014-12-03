@@ -15,16 +15,15 @@
                              ])
 
 User.create([
-                        {first_name: 'Azizou', last_name: 'Ogbone', email: 'ogboneazizou@gmail.com', password: 'testing123'},
-                        {first_name: 'Claude', last_name: 'Piessou', email: 'pcladius1@gmail.com', password: 'testing123'},
-                        {first_name: 'Ayaovi', last_name: 'Djissenou', email: 'djays@gmail.com', password: 'testing123'}
+                        {first_name: 'Claude', last_name: 'Piessou', email: 'pcladius1@gmail.com', password: 'testing123',  password_confirmation: 'testing123'},
+                        {first_name: 'Ayaovi', last_name: 'Djissenou', email: 'djays@gmail.com', password: 'testing123',  password_confirmation: 'testing123'}
                     ])
+ Admin.create(first_name: 'Azizou', last_name: 'Ogbone', email: 'admin@test.com', password: 'testing', password_confirmation: 'testing123')
 
 Navigation.create([{title: 'Home', position: 1, permalink: '/home'},
+                   { title: 'Dashboard', position: 1, permalink: '/admin', admin:true},
+                   { title: 'Users', position: 2, permalink: '/users'},
                    { title: 'Users', position: 2, permalink: '/users', admin: true},
-                   { title: 'Users', position: 2, permalink: '/users', admin: true},
-                   { title: 'Questions', position: 3, permalink: '/questions', admin:true},
-                   { title: 'Dashboard', position: 1, permalink: '/admin/index', admin:true}
-                   ])
+                   { title: 'Questions', position: 3, permalink: '/questions', admin:true}
 
-Admin.create(first_name: 'Azizou', last_name: 'Ogbone', email: 'admin@test.com', password: 'test')
+                   ])

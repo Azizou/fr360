@@ -5,7 +5,7 @@
         <div class="panel-heading"><h4>Add a new user</h4></div>
         <div class="panel-body">
           <%= form_for @user, url: users_path  do |f| %>
-              <%= render partial: 'users/form', locals: {user: @user} %>
+              <%= render partial: 'users/form', locals: {f: f} %>
               <div>
                 <%= f.submit('Save new user', class: 'btn btn-primary')%>
               </div>

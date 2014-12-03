@@ -1,35 +1,27 @@
 <%= error_messages_for(@user) %>
-
 <div class="form-group">
-	<%= f.label :first_name %>
+	<% # f.label :first_name %>
+	<label>First name: </label>
 	<%= f.text_field :first_name , class: 'form-control' %>
 </div>
 <div class="form-group">
-	<%= f.label :last_name %>
+	<% # f.label :last_name %>
+	<label>Last name: </label>
 	<%= f.text_field :last_name , class: 'form-control'%>
 </div>
 <div class="form-group">
-	<%= f.label :email%>
+	<%# f.label :email%>
+	<label>Email: </label>
 	<%= f.text_field :email , class: 'form-control' %>
 </div>
 <div class="form-group">
-	<%= f.label :password %>
+	<label>Password: </label>
+	<% #f.label :password %>
 	<%= f.password_field :password , class: 'form-control' %>
 </div>
 <div class="form-group">
-	<%= f.label :password_confirmation %>
+	<label>Password confirmation: </label>
+	<% # f.label :password_confirmation %>
 	<%= f.password_field :password_confirmation , class: 'form-control' %>
 </div>
 
-<div class="form-group">
-  <label for="position">First Name:</label>
-  <input type="text" class="form-control" id="first_name" name="user[first_name]" placeholder="Enter user's first name " value="<%= user.first_name %>">
-</div>
-<div class="form-group">
-  <label for="last_name">Last Name</label>
-  <input type="text" class="form-control" id="summary" name="user[last_name]" placeholder="Enter user's last name" value="<%= user.last_name %>">
-</div>
-<div class="form-group">
-  <label for="email">Email:</label><br>
-  <input type="email" class="form-control" id="email" name="user[email]" placeholder="Enter your email" value="<%= user.email%>">
-</div>

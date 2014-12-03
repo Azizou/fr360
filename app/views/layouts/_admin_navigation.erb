@@ -8,9 +8,9 @@
 				<li role="presentation" class="<%= is_active?(nav.permalink)%>"><%= link_to nav.title , nav.permalink %> </li>
 			<% end%>
 		</ul>
-		<ul class="nav navbar-right">
-			<li>Logged in as <%= current_user.full_name %></li>
-			<li><%= link_to 'End session', access_logout_path %></li>
+		<ul class="nav navbar-right nav-navbar">
+			<li role="presentation" >Logged in as <%= current_user.full_name %></li>
+			<li role="presentation"><%= link_to 'End session', access_logout_path %></li>
 		</ul>
 	</div>
 </nav>
