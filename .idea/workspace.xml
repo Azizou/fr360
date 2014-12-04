@@ -1,35 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22604c30-0528-46de-9eca-f14084686dea" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/members/edit.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/members/update.html.erb" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/performance_reviews/_comment_field.html.erb" afterPath="$PROJECT_DIR$/app/views/performance_reviews/_comment_field.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/performance_reviews/_feedback_field.html.erb" afterPath="$PROJECT_DIR$/app/views/performance_reviews/_feedback_field.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/performance_reviews/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/performance_reviews/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/questionnaires/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/questionnaires/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/questions/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/questions/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_member_navigation.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_member_navigation.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/performance_reviews/_radio_buttons.html.erb" afterPath="$PROJECT_DIR$/app/views/performance_reviews/_radio_buttons.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/custom.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/performance_reviews/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/performance_reviews/edit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/questions/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/questions/edit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/users/edit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/feedback.rb" afterPath="$PROJECT_DIR$/app/models/feedback.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/members/index.html.erb" afterPath="$PROJECT_DIR$/app/views/members/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/members_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/members_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/performance_reviews/new.html.erb" afterPath="$PROJECT_DIR$/app/views/performance_reviews/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/questions/new.html.erb" afterPath="$PROJECT_DIR$/app/views/questions/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/new.html.erb" afterPath="$PROJECT_DIR$/app/views/users/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/performance_reviews_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/performance_reviews_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/questionnaires_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/questionnaires_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/questions_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/questions_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/members/show.html.erb" afterPath="$PROJECT_DIR$/app/views/members/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/performance_reviews/show.html.erb" afterPath="$PROJECT_DIR$/app/views/performance_reviews/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="22604c30-0528-46de-9eca-f14084686dea" name="Default" comment="" />
     <ignored path="fr360.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/tmp/" />
