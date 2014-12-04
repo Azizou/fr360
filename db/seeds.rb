@@ -25,5 +25,4 @@ Navigation.create([{title: 'Home', position: 1, permalink: '/home'},
                    { title: 'Users', position: 2, permalink: '/users'},
                    { title: 'Users', position: 2, permalink: '/users', admin: true},
                    { title: 'Questions', position: 3, permalink: '/questions', admin:true}
-
                    ])

@@ -2,27 +2,33 @@ class UsersController < ApplicationController
 
   #refactor for actions that requires an object from it's id
 
-  layout 'admin'
+
+  #before_action :setLayout
 
   before_action :logged_in?
   before_action :find_user, only: [:edit, :show, :update, :destroy]
 
+  #layout setLayout
+
   def index
     @users = User.all
     render :index
-
   end
 
   def new
     @user = User.new
-
   end
 
   def update
-    saved =  @user.update(user_params)
-    if saved
-      flash[:notice] = 'User has been successfully added'
-      render :action => :show, id: @user.id
+    #saved =  @user.update(user_params)
+
+    if @user.update(user_params)
+      flash[:notice] = 'Update was successfully.'
+      if is_admin?
+        render :action => :show, id: @user.id
+      else
+        redirect_to members_path
+      end
     else
       #flash[:error] = 'Attempt to update user details failed, try again'
       render :edit
@@ -50,6 +56,9 @@ class UsersController < ApplicationController
   end
 
   def edit
+    unless is_admin?
+      render :layout => 'member'
+    end
   end
 
   def find_user

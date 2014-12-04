@@ -1,5 +1,5 @@
 
-<%= error_messages_for(f.object) %>
+<%= error_messages_for(@performance_review) %>
 
 <%= f.fields_for :feedbacks do |builder| %>
     <%= render partial: 'feedback_field',  locals: { f: builder} %>

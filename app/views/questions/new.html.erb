@@ -6,9 +6,9 @@
       <div class="panel panel-info">
         <div class="panel-heading"><h4> Add a new question</h4></div>
         <div class="panel-body">
-          <%= form_for @question, url: questions_path  do |ff|%>
-            <%= render partial: 'form', locals: {question: @question} %>
-            <%= ff.submit('Save question', class: 'btn btn-info')%>
+          <%= form_for @question, url: questions_path  do |f|%>
+            <%= render partial: 'form', locals: {f: f} %>
+            <%= f.submit('Save question', class: 'btn btn-info')%>
           <% end %>
         </div>
       </div>

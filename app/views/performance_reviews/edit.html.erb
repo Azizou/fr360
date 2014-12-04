@@ -1,17 +1,15 @@
 <% @page_title='Edit' %>
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <p><%= link_to 'Back to members\' list', users_path, class: 'btn btn-info' %> </p>
       <div class="panel panel-info">
         <div class="panel-heading"><h3>Editing review of :<%=  %> </h3></div>
         <div class="panel-body">
-					<div class="">
-						<%= form_for @performance_review, url: {action: :update} do |f| %>
-							<%= render partial: 'form', locals: {f: f} %>
-							<%= f.submit("Update review of #{session[:username]}", class: 'btn btn-primary') %>
-						<% end %>
-					</div>
+					<%= form_for @performance_review, url: {action: :update} do |f| %>
+						<%= render partial: 'form', locals: {f: f} %>
+						<%= f.submit("Update review of #{current_user.full_name}", class: 'btn btn-primary') %>
+					<% end %>
         </div>
       </div>
     </div>

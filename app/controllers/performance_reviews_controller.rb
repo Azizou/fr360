@@ -37,7 +37,7 @@ class PerformanceReviewsController < ApplicationController
       #raise review_params.to_yaml
       #Will only fail due to validations, so ..
       flash[:error] = 'You must complete all filed before submitting your review'
-      render :new
+      new
 
     end
   end

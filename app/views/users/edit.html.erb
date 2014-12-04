@@ -7,9 +7,9 @@
           <%= form_for @user, url: user_path(@user)  do |f|%>
 						<p class="alert alert-warning">If you are not changing your password, just re-enter the old one twice</p>
 						<%= render partial: 'users/form', locals: {f: f} %>
-						<%= link_to "Cancel and go back", users_path, class: 'btn btn-warning pull-right' %>
 						<%= f.submit class: 'btn btn-info pull-left' %>
-          <% end %>
+						<%= link_to 'Cancel', is_admin? ? users_path : members_path, class: 'btn btn-warning pull-right' %>
+				<% end %>
         </div>
       </div>
     </div> <!--end column-->

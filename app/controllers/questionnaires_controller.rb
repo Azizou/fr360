@@ -1,6 +1,6 @@
 class QuestionnairesController < ApplicationController
 
-  before_action :find_questionnaire, only: [:show, :edit, :update, :delete]
+  before_action :find_questionnaire, only: [:show, :edit, :update]
 
   def index
     @questionnaires = Questionnaire.all

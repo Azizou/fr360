@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
 
   layout 'admin'
 
-  before_action :is_admin?
+  before_action   :is_admin?
   before_action   :find_question, only: [:destroy, :show, :edit, :update]
 
   def new
