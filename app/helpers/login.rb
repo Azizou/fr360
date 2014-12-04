@@ -1,26 +1,9 @@
 class Login
-	attr_accessor :email, :password, :id
 
-	def initialize(params)
-		@email = params[:email]
-		@password = params[:password]
-		@id = nil
-	end
+	include ActiveModel::Validations
+	attr_accessor :email, :password
 
-	#Does not require new, since initialize does it
-
-	def self.create(email, password)
-		user = User.find_by(email: email)
-		if user && user.authenticate(password)
-			@id = user.id
-		end
-	end
-
-
-	def self.save
-		@id =  create(self.email, self.password)
-		unless @id
-			false
-		end
+	validates_each :email, :password do |record, attr, value|
+		record.errors.add attr, 'cannot be blank.' if value.blank?
 	end
 end

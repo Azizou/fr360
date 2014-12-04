@@ -3,9 +3,10 @@
 # Table name: navigations
 #
 #  id         :integer          not null, primary key
-#  title      :string(40)
+#  title      :string(50)
 #  position   :integer
 #  permalink  :string(255)
+#  admin      :boolean          default(FALSE)
 #  created_at :datetime
 #  updated_at :datetime
 #

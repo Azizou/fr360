@@ -1,20 +1,13 @@
 Rails.application.routes.draw do
 
 
-
-  get 'members/index'
-
-  get 'members/edit'
-
-  get 'members/update'
-
-  get 'members/show'
-
   get 'access/logout'
   post 'access/create'
   get 'access/new'
 
   root to: 'access#new'
+
+  resources :members, only: [:index, :show, :edit, :update]
 
   resources :users do
     resources :performance_reviews

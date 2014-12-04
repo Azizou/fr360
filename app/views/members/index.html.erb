@@ -1,0 +1,32 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-2">
+			<div class="panel panel-primary">
+				<div class="panel-heading"><h4>Logged in as <%= current_user.full_name %></h4></div>
+				<div class="panel-body">
+					<table class="table table-bordered table-striped">
+						<tr>
+							<th>Team Member</th>
+							<th>View PR</th>
+						</tr>
+						<% User.all.each do |user|%>
+							<tr>
+								<td>
+									<%= user.full_name %>
+								</td>
+								<td>
+									<% performance_review = PerformanceReview.completed(current_user.id, user.id).first  %>
+									<% if !performance_review.blank? %>
+										<%= link_to 'View', user_performance_review_path(user_id: user.id, id: performance_review.id) %>
+									<% else %>
+										<%= link_to 'Fill the review form', new_user_performance_review_path(user.id) %>
+									<% end %>
+									</td>
+							</tr>
+						<% end %>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
