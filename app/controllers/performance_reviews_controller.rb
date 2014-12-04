@@ -43,6 +43,7 @@ class PerformanceReviewsController < ApplicationController
   end
 
   def show
+    @performance_review = PerformanceReview.find(params[:id])
   end
 
   def edit

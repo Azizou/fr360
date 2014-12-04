@@ -3,11 +3,24 @@
 	<div class="row">
 		<div class="col-md-6 col-md-offset-2">
 			<div class="panel-info">
-				<div class="panel-heading"><h3>Review of <%= @performance_review.reviewee_id %></h3></div>
+				<div class="panel-heading"><h3>Review of <%= @performance_review.reviewee.full_name %></h3></div>
+				<div class="panel-body">
+					<% @performance_review.feedbacks.each do |x| %>
+					<div class="panel">
+						<div class="panel-title">
+							Question:<%= x.question.description %>
+						</div>
+						<div class="panel-body">
+							Comment: <%= x.comment %>
+						</div>
+						<div class="panel-footer">
+							Rating: <%= x.rating %>
+						</div>
+					</div>
+					<% end %>
+					</p>
+				</div>
 			</div>
 		</div>
-		<% @performance_review.feedbacks.each do |x| %>
-
-		<% end %>
 	</div>
 </div>
