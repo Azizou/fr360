@@ -2,6 +2,14 @@ Rails.application.routes.draw do
 
 
 
+  get 'members/index'
+
+  get 'members/edit'
+
+  get 'members/update'
+
+  get 'members/show'
+
   get 'access/logout'
   post 'access/create'
   get 'access/new'

@@ -8,16 +8,8 @@
 </head>
 <body class="back">
 
-<%= render partial: 'layouts/admin_navigation' %>
+<%= render partial: 'layouts/member_navigation' %>
 <div class="container">
-
-	<% [:notice, :error, :alert, :success].each do |level| %>
-		<% unless flash[level].blank? %>
-			<div class="<%= flash_class(level) %>">
-				<%= content_tag :span, flash[level] %>
-			</div>
-		<% end %>
-	<% end %>
 	<% unless flash[:notice].blank? %>
 		<div class="panel panel-info">
 

@@ -14,4 +14,6 @@ class PerformanceReview < ActiveRecord::Base
   has_many    :feedbacks
   accepts_nested_attributes_for :feedbacks
 
+  scope :completed, lambda {|reviewer_id, reviewee_id| where(reviewee_id: reviewee_id, reviewer_id: reviewer_id)}
+
 end

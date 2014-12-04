@@ -4,6 +4,8 @@
 
 .field_with_errors{
 	border: 2px solid red;
+	border-radius: 4px;
+
 }
 /* Sticky footer styles
 -------------------------------------------------- */

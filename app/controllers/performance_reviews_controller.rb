@@ -9,13 +9,8 @@ class PerformanceReviewsController < ApplicationController
   end
 
   def new
-
-    #raise review_params.to_yaml
-
     @user = User.find(params[:user_id])#params[:user_id])
-    #@questions = Question.sorted
     @performance_review = PerformanceReview.new
-    #@performance_review.user_id = @user.id
     Question.all.each do |question|
       @performance_review.feedbacks.build(question_id: question.id)
     end
@@ -38,7 +33,7 @@ class PerformanceReviewsController < ApplicationController
       render 'users/index'
     else
       #raise review_params.to_yaml
-      flash[:notice] = 'Failed to save PR'
+      flash[:error] = 'Failed to save PR'
       render :new
 
     end
@@ -49,7 +44,8 @@ class PerformanceReviewsController < ApplicationController
 
   def edit
     @user = User.find(params[:user_id])
-    render :'performance_reviews/edit'
+    @performance_review = PerformanceReview.find(params[:id])
+    render :'edit'
   end
 
   def update
