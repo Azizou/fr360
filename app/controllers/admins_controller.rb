@@ -47,13 +47,6 @@ class AdminsController < ApplicationController
   def show
   end
 
-  def feedback_form
-    @user = User.first
-    @performance_review = PerformanceReview.new
-    @feedback = Feedback.new
-    render :feedback_form
-  end
-
   def create_form
     render :index
   end

@@ -1,13 +1,14 @@
 # == Schema Information
 #
-# Table name: admins
+# Table name: users
 #
 #  id              :integer          not null, primary key
 #  first_name      :string(50)
 #  last_name       :string(100)
-#  admin           :text
 #  email           :string(255)
+#  description     :text
 #  password_digest :string(255)
+#  type            :string(255)
 #  created_at      :datetime
 #  updated_at      :datetime
 #
