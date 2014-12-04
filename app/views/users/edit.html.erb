@@ -5,9 +5,10 @@
         <div class="panel-heading"><h4>Update user details</h4></div>
         <div class="panel-body">
           <%= form_for @user, url: user_path(@user)  do |f|%>
-							<p class="alert alert-info">If you are not changing your password, just re-enter the old one twice</p>
-              <%= render partial: 'users/form', locals: {f: f} %>
-              <%= f.submit class: 'btn btn-default' %>
+						<p class="alert alert-warning">If you are not changing your password, just re-enter the old one twice</p>
+						<%= render partial: 'users/form', locals: {f: f} %>
+						<%= link_to "Cancel and go back", users_path, class: 'btn btn-warning pull-right' %>
+						<%= f.submit class: 'btn btn-info pull-left' %>
           <% end %>
         </div>
       </div>

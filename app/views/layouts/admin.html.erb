@@ -18,15 +18,6 @@
 			</div>
 		<% end %>
 	<% end %>
-	<% unless flash[:notice].blank? %>
-		<div class="panel panel-info">
-
-			<div class="panel-heading panel-danger">
-				<h4><%= flash[:notice]%></h4>
-			</div>
-
-		</div>
-	<% end %>
 </div>
 
 <%= yield %>
