@@ -1,2 +1,8 @@
-<h1>Questionnaires#edit</h1>
-<p>Find me in app/views/questionnaires/edit.html.erb</p>
+<% @page_title='Questionnaire - Edit' %>
+<div class="container">
+	<h2>Edit questionnaire</h2>
+	<%= form_for @questionnaire, url: questionnaires_path do |f| %>
+		<%= render partial: 'form', locals:{ f: f} %>
+		<%= f.submit('Save new questionnaire', class: 'btn btn-info') %>
+	<% end %>
+</div>

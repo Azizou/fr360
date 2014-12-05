@@ -1,10 +1,9 @@
-<% @page_title = 'Question - ' + @question.title %>
+<% @page_title = 'Question - ' + (@question.title||'') %>
 <div class="container-fluid" xmlns="http://www.w3.org/1999/html">
   <div class="row">
     <div class="col-md-5 col-md-offset-2">
-      <div  class="btn btn-info">
-        <i><%= link_to ' <<< Back to questions list', questions_path , class: 'text-default' %></i>
-
+      <div>
+        <%= link_to 'Back to questions list', questions_path , class: 'btn btn-info' %>
       </div><br><br>
       <div class="panel panel-info">
         <div class="panel-heading"><h3>Question details</h3></div>
@@ -20,12 +19,11 @@
             </tr>
             <tr>
               <td><strong>Maximum rating:</strong></td>
-              <td><%= @question.max_rate%></td>
+              <td><%= @question.max_rate %></td>
             </tr>
           </table>
         </div>
       </div>
     </div>
   </div>
-
 </div>

@@ -18,5 +18,8 @@ class MembersController < ApplicationController
   def show
     @feedbacks = load_feedback(current_user.id)
     @questions = Question.all
+    if is_admin?
+      render layout: 'admin'
+    end
   end
 end

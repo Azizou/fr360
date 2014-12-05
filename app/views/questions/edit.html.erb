@@ -1,3 +1,4 @@
+<% @page_title='Question - Edit' %>
 <div class="container">
   <div class="panel">
     <div class="panel-body">
@@ -9,7 +10,8 @@
             <%= form_for @question, url: question_path(@question)  do |f|%>
                 <%= render partial: 'form', locals: {f: @question} %>
                 <%= f.submit('Update question', class: 'btn btn-info')%>
-            <% end %>
+								<%= link_to 'Cancel', questions_path, class: 'btn btn-warning pull-right' %>
+						<% end %>
             </div>
           </div>
         </div>

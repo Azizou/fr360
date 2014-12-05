@@ -1,12 +1,16 @@
-<div class="form-group">
-	<%= f.label :title, 'Title:'%><br>
-	<%= f.text_field :title, placeholder: 'Question title' , class: 'form-control' %>
-</div>
-<div class="form-group">
-	<%= f.label :description, 'Description:'%><br>
-	<%= f.text_area :description, rows: 4, placeholder: 'Content of question' , class: 'form-control' %>
-</div>
-<div class="form-group">
-	<%= f.label :max_rate, 'Maximum rating:'%><br>
-	<%= f.text_field :max_rate, placeholder: 'What is the weighting of this question' , class: 'form-control' %>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="form-group">
+			<%= f.label :title, 'Title:'%><br>
+			<%= f.text_field :title, placeholder: 'Question title' , class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.label :description, 'Description:'%><br>
+			<%= f.text_area :description, rows: 4, placeholder: 'Content of question' , class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.label :max_rate, 'Maximum rating:'%><br>
+			<%= f.text_field :max_rate, placeholder: 'Weighting of this question' , class: 'form-control' %>
+		</div>
+	</div>
 </div>

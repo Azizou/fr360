@@ -27,5 +27,8 @@ body {
 }
 
 .glyphicon{
-	font-size: 30px;
+	font-size: 15px;
+}
+.green, .green a {
+	color: limegreen;
 }

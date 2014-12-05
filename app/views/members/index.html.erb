@@ -1,10 +1,10 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-5 col-md-offset-3">
+		<div class="col-md-4 col-md-offset-3">
 			<div class="panel panel-success">
-				<div class="panel-heading"><h4>Logged in as <%= current_user.full_name %></h4></div>
+				<div class="panel-heading"><h4>List of members of your team</h4></div>
 				<div class="panel-body">
-					<table class="table table-bordered table-striped">
+					<table class="table table-bordered table-striped table-hover">
 						<tr>
 							<th>Team Member</th>
 							<th>Action</th>
@@ -17,9 +17,9 @@
 								<td>
 									<% performance_review = PerformanceReview.completed(current_user.id, user.id).first  %>
 									<% if performance_review.blank? %>
-										<%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, new_user_performance_review_path(user.id) %>
+										<%= link_to '<span class="glyphicon glyphicon-pencil green"></span>'.html_safe, new_user_performance_review_path(user.id) %>
 									<% else %>
-										<%= link_to '<span class="glyphicon glyphicon-eye-open"></span>'.html_safe , user_performance_review_path(user_id: user.id, id: performance_review.id) %>
+										<%= link_to '<span class="glyphicon glyphicon-eye-open green"></span>'.html_safe , user_performance_review_path(user_id: user.id, id: performance_review.id) %>
 								<% end %>
 									</td>
 							</tr>

@@ -9,6 +9,7 @@
           <%= form_for @question, url: questions_path  do |f|%>
             <%= render partial: 'form', locals: {f: @question } %>
             <%= f.submit('Save question', class: 'btn btn-info')%>
+						<%= link_to 'Cancel', questions_path, class: 'btn btn-warning pull-right' %>
           <% end %>
         </div>
       </div>

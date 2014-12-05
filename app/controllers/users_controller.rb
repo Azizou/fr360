@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
   #refactor for actions that requires an object from it's id
 
-
   layout 'admin'
 
   before_action :logged_in?
@@ -69,10 +68,15 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find(params[:id])
+    @user ||= Admin.find(params[:id])
   end
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    if params[:user].present?
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    else
+      params.require(:admin).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    end
   end
 end

@@ -25,9 +25,9 @@ class User < ActiveRecord::Base
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :email, presence: true, uniqueness: {case_sensitive: false}, format: {with: EMAIL_REGEX}
-  validates :password, presence: true, length: {in: 6..15}
-  validates :password_confirmation, presence: true, on: :create
+  validates :email, presence: true, uniqueness: {case_sensitive: false}, format: {with: EMAIL_REGEX, allow_blank: true}
+  validates :password, presence: true, length: {in: 6..15, allow_blank: true}
+  validates :password_confirmation, presence: true, on: :create, if: proc { |x| x.password.present? }
 
   def full_name
     "#{self.first_name} #{self.last_name}"

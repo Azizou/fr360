@@ -1,14 +1,14 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6 col-md-offset-1">
-      <p><%= link_to 'Back to members\' list', is_admin? ? users_path : members_path, class: 'btn btn-info' %> </p>
-      <div class="panel panel-info">
-        <div class="panel-heading"><h3>Reviewing <%= @user.first_name %> </h3></div>
+      <p><%= link_to 'Back to members\' list', is_admin? ? users_path : members_path, class: "btn btn-#{them}" %> </p>
+      <div class="panel panel-<%= them%>">
+        <div class="panel-heading"><h3>Reviewing <%= @user.full_name %> </h3></div>
 				<div class="panel-body">
         <%= form_for @performance_review, url: user_performance_reviews_path do |f| %>
 					<%= render partial: 'form', locals: {f: f} %>
-					<%= f.submit("Submit Performance review for #{@user.full_name}", class: 'btn btn-info pull-left') %>
-					<%= link_to 'Cancel', is_admin? ? user_performance_reviews_path : members_path, class: 'btn btn-warning pull-right'%>
+					<%= f.submit("Submit Performance review for #{@user.full_name}", class: "btn btn-#{them} pull-left") %>
+					<%= link_to 'Cancel', is_admin? ? users_path : members_path, class: 'btn btn-warning pull-right'%>
         <% end %>
 				</div>
       </div>

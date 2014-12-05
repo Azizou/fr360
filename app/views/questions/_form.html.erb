@@ -1,7 +1,7 @@
 <%= error_messages_for(@question) %>
 <div class="form-group">
   <label for="title">Title:</label>
-  <input type="text" class="form-control" id="title" name="question[title]" placeholder="Question title" value="<%= f.title.blank? ? '': f.object.question.title%>">
+  <input type="text" class="form-control" id="title" name="question[title]" placeholder="Question title" value="<%= f.title.blank? ? '': f.title%>">
 </div>
 <div class="form-group">
   <label for="question">Content:</label><br>

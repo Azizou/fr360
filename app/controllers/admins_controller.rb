@@ -23,6 +23,7 @@ class AdminsController < ApplicationController
   end
 
   def edit
+    redirect_to edit_user_path(current_user)
   end
 
   def update
@@ -41,8 +42,6 @@ class AdminsController < ApplicationController
   end
 
   def index
-    #@admins = Admin.all
-    redirect_to users_path
   end
 
   def show
