@@ -6,9 +6,9 @@
         <div class="panel-heading"><h3>Reviewing <%= @user.first_name %> </h3></div>
 				<div class="panel-body">
         <%= form_for @performance_review, url: user_performance_reviews_path do |f| %>
-            <%= render partial: 'form', locals: {f: f} %>
-            <%= f.submit("Submit Performance review for #{current_user.full_name}", class: 'btn btn-info pull-left') %>
-								<%= link_to 'Cancel', is_admin? ? user_performance_reviews_path : members_path, class: 'btn btn-warning pull-right'%>
+					<%= render partial: 'form', locals: {f: f} %>
+					<%= f.submit("Submit Performance review for #{@user.full_name}", class: 'btn btn-info pull-left') %>
+					<%= link_to 'Cancel', is_admin? ? user_performance_reviews_path : members_path, class: 'btn btn-warning pull-right'%>
         <% end %>
 				</div>
       </div>

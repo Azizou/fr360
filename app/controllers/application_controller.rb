@@ -4,10 +4,14 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :logged_in?, :is_admin?
+  helper_method :current_user, :logged_in?, :is_admin?, :them
 
   def logged_in?
     current_user.present?
+  end
+
+  def them
+    is_admin? ? 'info':'success'
   end
 
   def is_admin?
@@ -16,6 +20,17 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
+  end
+
+  def load_feedback(reviewee_id)
+    reviews = PerformanceReview.where(reviewee_id: reviewee_id)    #return an array of pr for the current user
+    feed_backs = []
+    reviews.each do |review|
+      review.feedbacks.each do |f|
+        feed_backs << f
+      end
+    end
+    feed_backs
   end
 
 

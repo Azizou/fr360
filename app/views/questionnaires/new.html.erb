@@ -1,4 +1,7 @@
 <% @page_title='New questionnaire' %>
-<%= form_for @questionnaire, url: questionnaires_path do |f| %>
-<%= render partial: 'questionnaires/form', locals:{ f: f} %>
-<% end %>
+<div class="container">
+	<%= form_for @questionnaire, url: questionnaires_path do |f| %>
+		<%= render partial: 'questionnaires/form', locals:{ f: f} %>
+		<%= f.submit("Save new questionnaire") %>
+	<% end %>
+</div>

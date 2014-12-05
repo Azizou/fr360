@@ -33,7 +33,7 @@ class AccessController < ApplicationController
       @object.email = params[:email]
       @object.password = params[:password]
       @object.valid?
-      flash[:error] = 'Please login to proceed any further'
+      #flash[:error] = 'Please login to proceed any further'
       render :'access/new'
     end
   end

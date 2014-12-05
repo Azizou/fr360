@@ -8,8 +8,8 @@
 				<div class="panel-body">
 					<%= error_messages_for(@object)%>
 					<%= form_tag(access_create_path)%>
-					<%= label_tag :email ,'Email address:',class: 'form-label'%>
-					<%= text_field_tag :email,'',placeholder: 'Enter your email here',class: 'form-control' %><br>
+					<%= label_tag :email ,'Email address:',class: 'form-label', for: 'email' %>
+					<%= text_field_tag :email,'',placeholder: 'Enter your email here',class: 'form-control', id: 'email' %><br>
 					<p><%= label_tag :password,'Password:',class: 'form-label' %>
 						<%= password_field_tag :password,'',class: 'form-control', placeholder: 'Enter your password here..' %></p>
 					<p><%= submit_tag('Login', class: 'btn btn-info')%></p>

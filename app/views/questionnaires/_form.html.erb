@@ -1,4 +1,4 @@
 <%= error_messages_for(@questionnaire)%>
 <%= fields_for :questions do |builder| %>
-	<%= render partial: 'questions/form', locals: {f: builder} %>
+	<%= render partial: 'questions_form', locals: {f: builder} %>
 <% end %>

@@ -1,13 +1,13 @@
 <%= error_messages_for(@question) %>
 <div class="form-group">
-  <label for="title">Title</label>
-  <input type="text" class="form-control" id="title" name="question[title]" placeholder="Question title" value="<%= f.object.question.title.blank? ? '': f.object.question.title%>">
+  <label for="title">Title:</label>
+  <input type="text" class="form-control" id="title" name="question[title]" placeholder="Question title" value="<%= f.title.blank? ? '': f.object.question.title%>">
 </div>
 <div class="form-group">
-  <label for="question">Content</label><br>
-  <textarea class="form-control" id="description" rows="8" name="question[description]" placeholder="Qustion" ><%= f.object.question.description.blank? ? '': f.object.question.description %></textarea>
+  <label for="question">Content:</label><br>
+  <textarea class="form-control" id="description" rows="8" name="question[description]" placeholder="Description" ><%= f.description.blank? ? '': f.description %></textarea>
 </div>
 <div class="form-group">
-  <label for="max_rate">Question</label><br>
-  <input type="text" class="form-control" id="max_rate" name="question[max_rate]" placeholder="Maximum rating" value="<%= question.max_rate.blank? ? '': question.max_rate%>">
+  <label for="max_rate">Max rating:</label><br>
+  <input type="text" class="form-control" id="max_rate" name="question[max_rate]" placeholder="Maximum rating" value="<%= f.max_rate.blank? ? '': f.max_rate%>">
 </div>

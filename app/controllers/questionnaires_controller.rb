@@ -11,9 +11,9 @@ class QuestionnairesController < ApplicationController
   end
 
   def new
-    number_of_questions = params[:number_of_questions]
+    #number_of_questions = params[:number_of_questions]
     @questionnaire = Questionnaire.new
-    number_of_questions ||= 2
+    number_of_questions = 7
     number_of_questions.times do
       @questionnaire.questions.build
     end

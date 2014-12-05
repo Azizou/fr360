@@ -26,10 +26,11 @@ class AdminsController < ApplicationController
   end
 
   def update
-
     if @admin.update(admin_params)
       flash[:notice] = 'Update successful'
       redirect_to action: :index
+    else
+      render :edit
     end
   end
 
@@ -40,8 +41,8 @@ class AdminsController < ApplicationController
   end
 
   def index
-    @admins = Admin.all
-    render  'index'
+    #@admins = Admin.all
+    redirect_to users_path
   end
 
   def show

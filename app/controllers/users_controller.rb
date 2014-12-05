@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   #refactor for actions that requires an object from it's id
 
 
-  #before_action :setLayout
+  layout 'admin'
 
   before_action :logged_in?
   before_action :find_user, only: [:edit, :show, :update, :destroy]
@@ -53,6 +53,12 @@ class UsersController < ApplicationController
   end
 
   def show
+  end
+
+  def review
+    @feedbacks = load_feedback(params[:id])
+    @questions = Question.all
+    render 'members/show'
   end
 
   def edit

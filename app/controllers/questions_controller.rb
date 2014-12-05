@@ -34,9 +34,9 @@ class QuestionsController < ApplicationController
     @question = Question.create(question_params)
     if @question.save
       flash[:notice] = 'Question added successfully'
-      redirect_to question_path(@question)
+      redirect_to questions_path   #(@question)
     else
-      flash[:notice] = 'Unable to submit question, please fill all the filed'
+      #flash[:notice] = 'Unable to submit question, please fill all the filed'
       render 'new'
     end
   end

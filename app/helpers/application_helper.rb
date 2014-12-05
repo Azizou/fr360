@@ -6,6 +6,9 @@ module ApplicationHelper
 
 	def is_active?(link_path)
 		current_page?(link_path) ? 'active' : ''
+		#controller_name==link_path ? 'active':''
+		#current_page? (link_path) ? 'active' : ''
+
 	end
 
 	def flash_class(level)
@@ -16,6 +19,7 @@ module ApplicationHelper
 			when :alert then "alert alert-alert"
 		end
 	end
+
 
 
 

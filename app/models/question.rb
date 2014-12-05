@@ -15,8 +15,8 @@ class Question < ActiveRecord::Base
   has_many :feedbacks
   belongs_to :questionnaire
 
-  validates :max_rate, numericality: {less_than_or_equal_to: 10, greater_than_or_equal_to: 3}, presence: true
-  validates :description, presence: true
+  validates :max_rate, numericality: {less_than_or_equal_to: 10, greater_than_or_equal_to: 3, message: 'must be a number between 3 and 10'}
+  validates :description, presence: {value: true, message: 'is required'}
 
   scope :sorted, lambda {order(:created_at)}
 end

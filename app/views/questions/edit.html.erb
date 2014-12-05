@@ -7,7 +7,7 @@
             <div class="panel-heading"><h4>Update titled <%= @question.title %></h4></div>
             <div class="panel-body">
             <%= form_for @question, url: question_path(@question)  do |f|%>
-                <%= render partial: 'form', locals: {f: f} %>
+                <%= render partial: 'form', locals: {f: @question} %>
                 <%= f.submit('Update question', class: 'btn btn-info')%>
             <% end %>
             </div>
