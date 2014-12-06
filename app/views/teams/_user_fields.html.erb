@@ -1,0 +1,34 @@
+<div class="fields">
+	<div class="panel panel-info">
+		<div class="panel-body">
+			<div class="form-group">
+				<% # f.label :first_name %>
+				<label>First name: </label>
+				<%= f.text_field :first_name , class: 'form-control' %>
+			</div>
+			<div class="form-group">
+				<% # f.label :last_name %>
+				<label>Last name: </label>
+				<%= f.text_field :last_name , class: 'form-control'%>
+			</div>
+			<div class="form-group">
+				<%# f.label :email%>
+				<label>Email: </label>
+				<%= f.text_field :email , class: 'form-control' %>
+			</div>
+			<div class="form-group">
+				<label>Password: </label>
+				<% #f.label :password %>
+				<%= f.password_field :password , class: 'form-control' %>
+			</div>
+			<div class="form-group">
+				<label>Password confirmation: </label>
+				<% # f.label :password_confirmation %>
+				<%= f.password_field :password_confirmation , class: 'form-control' %>
+			</div>
+			<%= link_to_remove_fields 'Remove', f %>
+
+		</div>
+	</div>
+</div>
+

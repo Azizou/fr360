@@ -1,25 +1,35 @@
 class TeamsController < ApplicationController
+
+  layout 'admin'
+
+  before_action :find_team, only: [:show, :edit, :update, :delete]
+  before_action :is_admin?
+
   def index
     @teams = Team.where(admin_id: current_user.id)
   end
 
   def show
+    @users = @team.users
+    render 'users/index'
   end
 
   def new
     @team = Team.new
-    3.times do
+    @team.admin_id = current_user.id
+    5.times do
       @team.users.build
     end
   end
 
   def create
     @team = Team.new(team_params)
+    @team.admin = current_user
     if @team.save
       flash[:notice] = 'Team created successfully!'
-      render teams_path
+      redirect_to teams_path
     else
-      render new
+      render :new
     end
   end
 

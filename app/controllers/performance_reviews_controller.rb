@@ -27,12 +27,14 @@ class PerformanceReviewsController < ApplicationController
     @performance_review.reviewer_id = current_user.id
     @performance_review.reviewee_id = params[:user_id]
 
+    @team = @performance_review.reviewee.team
+
     #attempt to save if
     if @performance_review.save
       flash[:notice] = 'Successfully saved PR'
       @users = User.all
       if is_admin?
-        render 'users/index'
+        redirect_to team_users_path(@team)
       else
         redirect_to members_path
       end

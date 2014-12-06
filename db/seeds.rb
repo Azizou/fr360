@@ -7,16 +7,15 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create([
-                        {first_name: 'Claude', last_name: 'Piessou', email: 'pcladius1@gmail.com', password: 'testing123',  password_confirmation: 'testing123'},
-                        {first_name: 'Ayaovi', last_name: 'Djissenou', email: 'djays@gmail.com', password: 'testing123',  password_confirmation: 'testing123'}
-                    ])
+                  {first_name: 'Claude', last_name: 'Piessou', email: 'pcladius1@gmail.com', password: 'testing123',  password_confirmation: 'testing123'},
+                  {first_name: 'Ayaovi', last_name: 'Djissenou', email: 'djays@gmail.com', password: 'testing123',  password_confirmation: 'testing123'}
+                  ])
  admin = Admin.create(first_name: 'Azizou', last_name: 'Ogbone', email: 'admin@test.com', password: 'test', password_confirmation: 'test')
 
-Navigation.create([{title: 'Home', position: 1, permalink: '/home'},
-                   { title: 'Dashboard', position: 1, permalink: '/admin', admin:true},
+Navigation.create([{ title: 'Dashboard', position: 1, permalink: '/admins', admin:true},
                    { title: 'Users', position: 2, permalink: '/users'},
-                   { title: 'Users', position: 2, permalink: '/users', admin: true},
-                   { title: 'Questions', position: 3, permalink: '/questions', admin:true}
+                   { title: 'Teams', position: 2, permalink: '/teams', admin: true},
+                   { title: 'Questionnaires', position: 3, permalink: '/questionnaires', admin:true}
                    ])
 Questionnaire.create(title: 'Default', admin: admin)
 

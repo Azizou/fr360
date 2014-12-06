@@ -1,13 +1,13 @@
-<% #@page_title='Reviews' %>
+<% @page_title='Reviews' %>
 <div class="container">
 	<% if @feedbacks.count==0 %>
 		<div class="alert alert-<%= them %>">
 			No Feed backs reveived yet
 		</div>
 	<% else %>
-		<% # @feedbacks.inspect %>
+		<div class="panel panel-info panel-heading">You have received the following reviews: </div>
 		<% @questions.each do |x| %>
-			<div class="panel panel-default">
+			<div class="panel panel-<%= them %>">
 				<div class="panel-heading"><h4><%= x.description %></h4></div>
 				<div class="panel-body">
 					<% @feedbacks.each do |y| %>
