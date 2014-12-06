@@ -1,5 +1,6 @@
 <%= error_messages_for(@questionnaire)%>
-
+<%= f.label :title, 'Questionnaire title' %>
+<%= f.text_field :title %>
 <%= f.fields_for :questions do |builder| %>
 	<%= render partial: 'questions_form', locals: {f: builder} %>
 <% end %>

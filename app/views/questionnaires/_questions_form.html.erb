@@ -12,5 +12,7 @@
 			<%= f.label :max_rate, 'Maximum rating:'%><br>
 			<%= f.text_field :max_rate, placeholder: 'Weighting of this question' , class: 'form-control' %>
 		</div>
+		<%= f.check_box :_destroy %>
+		<%= f.label :_destroy, "Remove question" %>
 	</div>
 </div>

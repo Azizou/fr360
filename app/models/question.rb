@@ -12,7 +12,7 @@
 #
 
 class Question < ActiveRecord::Base
-  has_many :feedbacks
+  has_many :feedbacks, dependent: :destroy
   belongs_to :questionnaire
 
   validates :max_rate, numericality: {less_than_or_equal_to: 10, greater_than_or_equal_to: 3, message: 'must be a number between 3 and 10'}

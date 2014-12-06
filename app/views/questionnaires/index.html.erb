@@ -7,17 +7,28 @@
 					<% if Questionnaire.count==0 %>
 						<h4>No questionnaires yet, would you like to create a new one?</h4>
 					<% else  %>
+						<ol>
 						<% @questionnaires.each do |x| %>
-
+							<li><%= link_to x.title, questionnaire_path(x) %></li>
 						<% end %>
+						</ol>
 					<% end %>
-					<div class="form">
-						<h4>Create a new questionnaire with
-						<% form_tag(new_questionnaire_path) %>
-						<%= text_field_tag :number_of_questions  %>
-						<%= submit_tag 'Go' %>
-						</h4>
-					</div>
+					<form class="form" method="get" action="<%= new_questionnaire_path %>">
+						<div class="form-inline">
+							<label for="number_of_questions">Number of questions:</label>
+							<input type="text" name="number_of_questions" maxlength="3">
+							<input type="submit" class="btn btn-info" value="Go!">
+						</div>
+					</form>
+
+
+
+
+						Create a new questionnaire with
+							<% form_tag(action: 'new') do %>
+								<%= text_field_tag('number_of_questions') %><br>
+								<%= submit_tag('Go') %>
+							<% end %>
 				</div>
 			</div>
 		</div>

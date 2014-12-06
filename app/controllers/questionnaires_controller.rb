@@ -9,10 +9,12 @@ class QuestionnairesController < ApplicationController
 
 
   def show
+    @questions = @questionnaire.questions
+    render 'questions/index'
   end
 
   def new
-    number_of_questions = params[:number_of_questions]
+    number_of_questions = params[:number_of_questions].to_i unless params[:number_of_questions].blank?
     @questionnaire = Questionnaire.new
     number_of_questions ||= 5
     number_of_questions.times do
@@ -21,12 +23,23 @@ class QuestionnairesController < ApplicationController
   end
 
   def create
+    @questionnaire = Questionnaire.new(questionnaire_params)
+    if @questionnaire.save
+      flash[:notice] = 'Questionnaire successfully created'
+      redirect_to questionnaire_path(@questionnaire)
+    end
   end
 
   def edit
   end
 
   def update
+    if @questionnaire.update(questionnaire_params)
+      flash[:notice]= 'Update was successful'
+      redirect_to questionnaires_path
+    else
+      render :edit
+    end
   end
 
   def destroy

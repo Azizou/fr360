@@ -1,6 +1,20 @@
 Rails.application.routes.draw do
 
 
+  get 'teams/index'
+
+  get 'teams/show'
+
+  get 'teams/new'
+
+  get 'teams/create'
+
+  get 'teams/edit'
+
+  get 'teams/update'
+
+  get 'teams/delete'
+
   get 'access/logout'
   post 'access/create'
   get 'access/new'
