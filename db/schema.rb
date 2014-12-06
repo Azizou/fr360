@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20141206081745) do
   add_index "teams", ["admin_id"], name: "index_teams_on_admin_id", using: :btree
 
   create_table "users", force: true do |t|
+    t.integer  "team_id"
     t.string   "first_name",      limit: 50
     t.string   "last_name",       limit: 100
     t.string   "email"
@@ -82,5 +83,7 @@ ActiveRecord::Schema.define(version: 20141206081745) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["team_id"], name: "index_users_on_team_id", using: :btree
 
 end

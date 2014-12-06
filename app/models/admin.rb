@@ -15,4 +15,6 @@
 
 class Admin < User
   has_many :questionnaires
+  has_many :teams
+  has_many :users, through: :teams
 end
