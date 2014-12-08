@@ -1,6 +1,7 @@
 class QuestionnairesController < ApplicationController
 
   layout 'admin'
+  before_action :confirm_admin_access
   before_action :find_questionnaire, only: [:show, :edit, :update]
 
   def index

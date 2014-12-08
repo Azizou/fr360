@@ -8,7 +8,6 @@ module ApplicationHelper
 		current_page?(link_path) ? 'active' : ''
 		#controller_name==link_path ? 'active':''
 		#current_page? (link_path) ? 'active' : ''
-
 	end
 
 	def flash_class(level)
@@ -21,7 +20,7 @@ module ApplicationHelper
 	end
 
 	def link_to_remove_fields(name, f)
-		f.hidden_field(:_destroy) + link_to(name, 'remove_fields(this)')
+		f.hidden_field(:_destroy) + link_to_js(name, 'remove_fields(this)')
 	end
 
 	def link_to_add_fields(name, f, association)
@@ -30,9 +29,10 @@ module ApplicationHelper
 			render(association.to_s.singularize + '_fields', :f => builder)
 		end
 		link_to(name, ("add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")"))
+		#link_to_js(name, ("add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")".html_safe))
 	end
 
-
-
-
+	def link_to_js(name, function)
+		"<a href=\"#\" onclick=\"#{function}\"> #{name}<a/>".html_safe
+	end
 end

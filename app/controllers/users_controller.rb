@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   #layout setLayout
 
   def index
-    @users = User.all
+    @users = User.where(team_id: params[:team_id])
     render :index
   end
 

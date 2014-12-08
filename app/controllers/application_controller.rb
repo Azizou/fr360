@@ -14,6 +14,23 @@ class ApplicationController < ActionController::Base
     is_admin? ? 'info':'success'
   end
 
+  def confirm_admin_access
+
+    unless logged_in? && is_admin?
+      flash[:notice] = 'You must be logged in with admin permission to view this page'
+      if logged_in?
+        redirect_to members_path and return
+      end
+      redirect_to access_new_path
+    end
+  end
+
+  def confirm_normal_access
+    unless logged_in? && !is_admin?
+      redirect_to access_new_path
+    end
+  end
+
   def is_admin?
     logged_in? && current_user.is_type?('Admin')
   end

@@ -9,10 +9,10 @@ class Login
 	#validates :password, presence: true, length: {in: 6..15}
 
 	validates_each :email, :password do |record, attr, value|
-		record.errors.add attr, 'is a required value.' if value.blank?
+		record.errors.add attr, ' field cannot be blank.' if value.blank?
 	end
 
 	validates_each :email do |record, attr, value|
-		record.errors.add attr, 'is not valid' unless format(value) == EMAIL_REGEX
+		record.errors.add attr, 'is not valid' unless format(value) == EMAIL_REGEX || ''
 	end
 end

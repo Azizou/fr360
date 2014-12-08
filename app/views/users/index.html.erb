@@ -38,7 +38,7 @@
 				<% if is_admin? %>
 					<div class="row">
 						<div class="col-md-1">
-							<div><%= link_to 'Add A new User', {action: :new}, class: 'btn btn-info' %></div>
+							<div><%= link_to 'Add A new User', new_user_path, class: 'btn btn-info' %></div>
 						</div>
 					</div>
 				<% end %>

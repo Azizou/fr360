@@ -5,7 +5,12 @@ class MembersController < ApplicationController
   layout 'member'
 
   def index
-    @users = User.all
+    @team = current_user.team
+    if @team
+      @users = User.where(team_id: @team.id)
+    else
+      @users = User.all
+    end
   end
 
   #setting by the member, like changing their password

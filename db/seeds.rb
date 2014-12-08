@@ -6,11 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create([
-                  {first_name: 'Claude', last_name: 'Piessou', email: 'pcladius1@gmail.com', password: 'testing123',  password_confirmation: 'testing123'},
-                  {first_name: 'Ayaovi', last_name: 'Djissenou', email: 'djays@gmail.com', password: 'testing123',  password_confirmation: 'testing123'}
+users = User.create([
+                  {first_name: 'User1', last_name: 'UserTest1', email: 'user1@test.com', password: 'test',  password_confirmation: 'test'},
+                  {first_name: 'User2', last_name: 'UserTest2', email: 'duser2@test.com', password: 'test',  password_confirmation: 'test'}
                   ])
- admin = Admin.create(first_name: 'Azizou', last_name: 'Ogbone', email: 'admin@test.com', password: 'test', password_confirmation: 'test')
+admin = Admin.create(first_name: 'Admin', last_name: 'AdminTest', email: 'admin@test.com', password: 'test', password_confirmation: 'test')
 
 Navigation.create([{ title: 'Dashboard', position: 1, permalink: '/admins', admin:true},
                    { title: 'Users', position: 2, permalink: '/users'},
@@ -25,3 +25,4 @@ Question.create([
                   { title: 'competence', max_rate: 5, description: 'How would you rate his dependency on the others'},
                   { title: 'extra', max_rate: 2, description: 'Do you think he eat normal and healthy foods'}
                 ])
+Team.create(title: 'Default', admin: admin, users: users)

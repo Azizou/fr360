@@ -3,7 +3,7 @@ class AdminsController < ApplicationController
   layout 'admin'
 
   #only when admin should any action in this class be called
-  before_action :is_admin?
+  before_action :confirm_admin_access
   before_action :find_admin, only: [:edit, :update, :delete, :show]
 
   def new

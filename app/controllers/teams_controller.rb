@@ -2,10 +2,13 @@ class TeamsController < ApplicationController
 
   layout 'admin'
 
+  before_action :confirm_admin_access
   before_action :find_team, only: [:show, :edit, :update, :delete]
-  before_action :is_admin?
 
   def index
+    unless is_admin?
+      redirect_to members_path
+    end
     @teams = Team.where(admin_id: current_user.id)
   end
 
