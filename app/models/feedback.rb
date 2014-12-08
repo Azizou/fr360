@@ -17,5 +17,5 @@ class Feedback < ActiveRecord::Base
   validates :comment, presence: true
   validates :rating, presence:  true
 
-  scope :sorted, lambda {order(:desc, :question_id )}
+  scope :sorted, lambda {order(:asc, :question_id )}
 end

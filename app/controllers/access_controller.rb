@@ -4,6 +4,13 @@ class AccessController < ApplicationController
   
   def new
     @object = Login.new
+    if logged_in?
+      if is_admin?
+        redirect_to users_path
+      else
+        redirect_to members_path
+      end
+    end
   end
 
   def create
@@ -26,7 +33,7 @@ class AccessController < ApplicationController
       @object.email = params[:email]
       @object.password = params[:password]
       @object.valid?
-      flash[:error] = 'Please login to proceed any further'
+      #flash[:error] = 'Please login to proceed any further'
       render :'access/new'
     end
   end

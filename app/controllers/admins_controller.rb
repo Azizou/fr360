@@ -3,7 +3,7 @@ class AdminsController < ApplicationController
   layout 'admin'
 
   #only when admin should any action in this class be called
-  before_action :is_admin?
+  before_action :confirm_admin_access
   before_action :find_admin, only: [:edit, :update, :delete, :show]
 
   def new
@@ -23,13 +23,15 @@ class AdminsController < ApplicationController
   end
 
   def edit
+    redirect_to edit_user_path(current_user)
   end
 
   def update
-
     if @admin.update(admin_params)
       flash[:notice] = 'Update successful'
       redirect_to action: :index
+    else
+      render :edit
     end
   end
 
@@ -40,8 +42,6 @@ class AdminsController < ApplicationController
   end
 
   def index
-    @admins = Admin.all
-    render  'index'
   end
 
   def show

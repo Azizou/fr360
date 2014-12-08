@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
 
 
+
+
   get 'access/logout'
   post 'access/create'
   get 'access/new'
+
+  resources :teams do
+    resources :users
+  end
 
   root to: 'access#new'
 

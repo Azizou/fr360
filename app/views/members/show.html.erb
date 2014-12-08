@@ -1,21 +1,28 @@
-<% #@page_title='Reviews' %>
+<% @page_title='Reviews' %>
 <div class="container">
 	<% if @feedbacks.count==0 %>
-		<div class="alert alert-info">
+		<div class="alert alert-<%= them %>">
 			No Feed backs reveived yet
 		</div>
 	<% else %>
-		<% # @feedbacks.inspect %>
+		<div class="panel panel-info panel-heading">You have received the following reviews: </div>
 		<% @questions.each do |x| %>
-			<div class="panel panel-success">
+			<div class="panel panel-<%= them %>">
 				<div class="panel-heading"><h4><%= x.description %></h4></div>
 				<div class="panel-body">
 					<% @feedbacks.each do |y| %>
 						<% p y.inspect %>
 						<% if y[:question_id]==x.id %>
 							<div>
+								<% if y.comment.present? %>
 									<strong>Feed back: </strong><%= y.comment %>
 									<strong>Rating:</strong><span class="text-right"> <%= "#{y.rating}/#{x.max_rate}"  %></span>
+									<% if is_admin? %>
+										<strong>By: <%= y.performance_review.reviewer.full_name %></strong>
+									<% end %>
+								<% else %>
+									<strong>No feed back on this question</strong>
+								<% end %>
 							</div><hr>
 						<% end %>
 					<% end %>

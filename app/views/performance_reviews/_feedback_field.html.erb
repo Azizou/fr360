@@ -1,5 +1,5 @@
-
-<div class=""><h5><%= f.object.question.description %></h5></div>
+<strong>Question:</strong>
+<p><h5><%= f.object.question.description %></h5></p>
 <%= f.hidden_field :question_id, value: f.object.question.id %>
 <%= render partial: 'comment_field' , locals: {f: f}%>
 <%= render partial: 'radio_buttons', locals: {f: f} %>

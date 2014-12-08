@@ -1,3 +1,4 @@
+<% @page_title='User - New' %>
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
@@ -7,7 +8,7 @@
           <%= form_for @user, url: users_path  do |f| %>
 						<%= render partial: 'users/form', locals: {f: f} %>
 						<div>
-							<%= f.submit('Add user', class: 'btn btn-primary pull-left')%>
+							<%= f.submit('Add user', class: 'btn btn-info pull-left')%>
 							<%= link_to 'Cancel', is_admin? ? users_path : members_path, class: 'btn btn-warning pull-right' %>
 						</div>
           <% end %>

@@ -8,7 +8,7 @@
         <div class="panel-body">
 					<%= form_for @performance_review, url: {action: :update} do |f| %>
 						<%= render partial: 'form', locals: {f: f} %>
-						<%= f.submit("Update review of #{current_user.full_name}", class: 'btn btn-primary') %>
+						<%= f.submit("Update review of #{current_user.full_name}", class: 'btn btn-info') %>
 					<% end %>
         </div>
       </div>

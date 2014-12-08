@@ -5,7 +5,12 @@ class MembersController < ApplicationController
   layout 'member'
 
   def index
-    @users = User.all
+    @team = current_user.team
+    if @team
+      @users = User.where(team_id: @team.id)
+    else
+      @users = User.all
+    end
   end
 
   #setting by the member, like changing their password
@@ -18,16 +23,8 @@ class MembersController < ApplicationController
   def show
     @feedbacks = load_feedback(current_user.id)
     @questions = Question.all
-  end
-
-  def load_feedback(reviewee_id)
-    reviews = PerformanceReview.where(reviewee_id: reviewee_id)    #return an array of pr for the current user
-    feed_backs = []
-    reviews.each do |review|
-      review.feedbacks.each do |f|
-        feed_backs << f
-      end
+    if is_admin?
+      render layout: 'admin'
     end
-    feed_backs
   end
 end

@@ -8,10 +8,10 @@
 					<%= form_for @admin , url: {action: 'create'} do |f|%>
 						<%= render partial: 'admins/form', locals: {f: f }%>
 						<%= f.submit 'Save admin', class: 'btn btn-warning' %>
+						<%= link_to 'Cancel', is_admin? ? admins_path : members_path, class: 'btn btn-warning pull-right' %>
 					<% end %>
 				</div>
 			</div>
 		</div>
 	</div>
-
 </div>

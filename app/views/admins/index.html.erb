@@ -1,5 +1,16 @@
 <% @page_title='Admin dashboard' %>
-
 <div class="container">
-	
+	<div class="panel panel-info">
+		<div class="panel-heading"><h1>Admin dashboard</h1></div>
+		<div class="panel-body">
+			<div>
+				<%= link_to 'Questionnaires', questionnaires_path, class: 'form-control btn btn-lg btn-info' %><br><br>
+				<%= link_to 'Teams', teams_path, class: 'form-control btn btn-info btn-lg' %><br><br>
+				<%= link_to 'Questions', questions_path, class: 'form-control btn btn-info btn-lg' %><br><br>
+				<%= link_to 'Settings', edit_user_path(current_user), class: 'form-control btn btn-info btn-lg' %><br><br>
+				<%= link_to 'Add a new admin', new_admin_path, class: 'form-control btn btn-info btn-lg' %><br><br>
+
+			</div>
+		</div>
+	</div>
 </div>

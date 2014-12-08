@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141201212150) do
+ActiveRecord::Schema.define(version: 20141206081745) do
 
   create_table "feedbacks", force: true do |t|
     t.integer  "question_id"
@@ -63,7 +63,17 @@ ActiveRecord::Schema.define(version: 20141201212150) do
 
   add_index "questions", ["questionnaire_id"], name: "index_questions_on_questionnaire_id", using: :btree
 
+  create_table "teams", force: true do |t|
+    t.string   "title"
+    t.integer  "admin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "teams", ["admin_id"], name: "index_teams_on_admin_id", using: :btree
+
   create_table "users", force: true do |t|
+    t.integer  "team_id"
     t.string   "first_name",      limit: 50
     t.string   "last_name",       limit: 100
     t.string   "email"
@@ -73,5 +83,7 @@ ActiveRecord::Schema.define(version: 20141201212150) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["team_id"], name: "index_users_on_team_id", using: :btree
 
 end

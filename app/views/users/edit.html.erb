@@ -1,13 +1,14 @@
+<% @page_title='User - Edit' %>
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-2">
-      <div class="panel panel-info">
+      <div class="panel panel-<%= them%>">
         <div class="panel-heading"><h4>Update user details</h4></div>
         <div class="panel-body">
           <%= form_for @user, url: user_path(@user)  do |f|%>
 						<p class="alert alert-warning">If you are not changing your password, just re-enter the old one twice</p>
 						<%= render partial: 'users/form', locals: {f: f} %>
-						<%= f.submit class: 'btn btn-info pull-left' %>
+						<%= f.submit class: "btn btn-#{them} pull-left" %>
 						<%= link_to 'Cancel', is_admin? ? users_path : members_path, class: 'btn btn-warning pull-right' %>
 				<% end %>
         </div>

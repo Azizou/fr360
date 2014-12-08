@@ -2,8 +2,7 @@ class UsersController < ApplicationController
 
   #refactor for actions that requires an object from it's id
 
-
-  #before_action :setLayout
+  layout 'admin'
 
   before_action :logged_in?
   before_action :find_user, only: [:edit, :show, :update, :destroy]
@@ -11,7 +10,7 @@ class UsersController < ApplicationController
   #layout setLayout
 
   def index
-    @users = User.all
+    @users = User.where(team_id: params[:team_id])
     render :index
   end
 
@@ -55,6 +54,12 @@ class UsersController < ApplicationController
   def show
   end
 
+  def review
+    @feedbacks = load_feedback(params[:id])
+    @questions = Question.all
+    render 'members/show'
+  end
+
   def edit
     unless is_admin?
       render :layout => 'member'
@@ -63,10 +68,15 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find(params[:id])
+    @user ||= Admin.find(params[:id])
   end
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    if params[:user].present?
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    else
+      params.require(:admin).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    end
   end
 end
