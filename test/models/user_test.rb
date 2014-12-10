@@ -17,18 +17,4 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-
-	test 'invalid without all attributes' do
-		user = User.new
-		assert !user.valid?, 'Should not be valid without all attributes set'
-	end
-
-	test 'uniqueness of email' do
-		#user1 = users(:user1)
-		#user2 = users(:user2)
-
-		#user2.email = user1.email
-
-		assert true, 'Email should be uniq'
-	end
 end
