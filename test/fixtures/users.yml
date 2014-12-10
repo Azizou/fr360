@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
+#  team_id         :integer
 #  first_name      :string(50)
 #  last_name       :string(100)
 #  email           :string(255)
@@ -19,8 +20,16 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+user1:
+  first_name: 'test'
+  last_name: 'Test'
+  email:  'test@test.com'
+  password: 'test'
+
+
+
+user2:
+  first_name: 'test1'
+  last_name: 'Test1'
+  email:  'test1@test.com'
+  password: 'test'# column: value

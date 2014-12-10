@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
+#  team_id         :integer
 #  first_name      :string(50)
 #  last_name       :string(100)
 #  email           :string(255)
