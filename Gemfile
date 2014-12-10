@@ -4,7 +4,6 @@
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use mysql as the database for Active Record
-gem 'mysql2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -14,7 +13,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+gem 'mysql2'
 gem 'pg', '~> 0.17.1'   #POstgresql db
+gem 'sqlite3'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -62,28 +63,28 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-require 'yaml'
-
-env = ENV["RAILS_ENV"] || 'development'
-dbconfig = File.expand_path("../config/database.yml", __FILE__)
-
-raise "You need to configure config/database.yml first" unless File.exists?(dbconfig)
-require 'erb'
-config = YAML.load(ERB.new(File.read(dbconfig)).result)
-
-environment = config[env]
-
-adapter = environment['adapter'] if environment
-raise "Please set an adapter in database.yml for #{env} environment" if adapter.nil?
-case adapter
-	when 'sqlite3'
-		gem 'sqlite3'
-	when 'postgresql'
-		gem 'pg'
-	when 'mysql2'
-		gem 'mysql2'
-	else
-		raise "Not supported database adapter: #{adapter}"
-end
+# require 'yaml'
+#
+# env = ENV["RAILS_ENV"] || 'development'
+# dbconfig = File.expand_path("../config/database.yml", __FILE__)
+#
+# raise "You need to configure config/database.yml first" unless File.exists?(dbconfig)
+# require 'erb'
+# config = YAML.load(ERB.new(File.read(dbconfig)).result)
+#
+# environment = config[env]
+#
+# adapter = environment['adapter'] if environment
+# raise "Please set an adapter in database.yml for #{env} environment" if adapter.nil?
+# case adapter
+# 	when 'sqlite3'
+#
+# 	when 'postgresql'
+# 		gem 'pg'
+# 	when 'mysql2'
+# 		gem 'mysql2'
+# 	else
+# 		raise "Not supported database adapter: #{adapter}"
+# end
 
 

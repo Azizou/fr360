@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 2.1.5
+  - 2.1.3
   - 2.0.0
   - 1.9.3
 env:
@@ -11,4 +11,4 @@ before_install: cp config/database.travis.yml config/database.yml
 script:
   - export RAILS_ENV=test
   - bundle exec rake db:create db:migrate
-  - bundle exec rake test
+  - bundle exec rake
