@@ -16,5 +16,10 @@
 
 require 'test_helper'
 
-class AdminTest < ActiveSupport::TestCase
+class UserTest < ActiveSupport::TestCase
+	test 'invalid without a name' do
+		user = users(:user)
+		user.name = nil
+		assert !user.valid?, 'Name is not being validated'
+	end
 end

@@ -21,7 +21,8 @@
 # below each fixture, per the syntax in the comments below
 #
 
-user1:
+user:
+  id: 1
   first_name: 'test'
   last_name: 'Test'
   email:  'test@test.com'
