@@ -10,8 +10,8 @@ class QuestionnairesController < ApplicationController
 
 
   def show
-    @questions = @questionnaire.questions
-    render 'questions/index'
+   # @questions = @questionnaire.questions
+    redirect_to questionnaire_questions_path(@questionnaire)
   end
 
   def new

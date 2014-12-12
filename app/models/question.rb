@@ -12,7 +12,7 @@
 #
 
 class Question < ActiveRecord::Base
-  has_many :feedbacks, dependent: :destroy
+  has_many :feedbacks
   belongs_to :questionnaire, dependent: :destroy
 
   before_create :set_questionnaire

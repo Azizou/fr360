@@ -12,7 +12,11 @@
 require 'test_helper'
 
 class TeamTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+	def setup
+		admin = Admin.new(first_name: 'test', last_name: 'admin', email: 'admin@test.com')
+		admin.password = 'test'
+		admin.password_confirmation = 'test'
+		@team = Team.create(title: 'Default', admin: admin)
+	end
 end

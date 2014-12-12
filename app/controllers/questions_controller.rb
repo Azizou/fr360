@@ -11,7 +11,14 @@ class QuestionsController < ApplicationController
 
 
   def index
-    @questions = Question.sorted
+    if params[:questionnaire_id].present?
+      @all = false
+      @questions = Questionnaire.find(params[:questionnaire_id]).questions
+    else
+      @questions = Question.sorted
+      @all = true
+    end
+    #@questions = Questionnaire.find(params[:questionnaire_id]).questions
   end
 
   def update
@@ -34,7 +41,7 @@ class QuestionsController < ApplicationController
     @question = Question.create(question_params)
     if @question.save
       flash[:notice] = 'Question added successfully'
-      redirect_to questions_path   #(@question)
+      redirect_to questionnaire_questions_path(questionnaire_id: params[:questionnaire_id])   #(@question)
     else
       #flash[:notice] = 'Unable to submit question, please fill all the filed'
       render 'new'

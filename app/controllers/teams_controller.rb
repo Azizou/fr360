@@ -18,9 +18,11 @@ class TeamsController < ApplicationController
   end
 
   def new
+    number_of_new_users = 2
+    number_of_new_users ||= params[:number_of_new_users]
     @team = Team.new
     @team.admin_id = current_user.id
-    5.times do
+    number_of_new_users.times do
       @team.users.build
     end
   end

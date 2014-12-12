@@ -55,6 +55,7 @@ group :test do
 	gem 'rspec-rails'
 	gem 'shoulda'
 	gem 'mocha'
+	gem 'factory_girl_rails', '~> 4.5.0'
 end
 #gem 'acts_as_list', '~> 0.5.0'
 

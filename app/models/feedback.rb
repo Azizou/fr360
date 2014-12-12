@@ -13,7 +13,7 @@
 
 class Feedback < ActiveRecord::Base
   belongs_to :performance_review
-  belongs_to :question
+  belongs_to :question, dependent: :destroy
   validates :comment, presence: true
   validates :rating, presence:  true
 

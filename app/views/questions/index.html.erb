@@ -8,12 +8,18 @@
 		<tr>
 			<th class="text-center"> Question</th>
 			<th class="text-center">Maximum rating</th>
+			<% if @all %>
+				<td>Questionnaire</td>
+			<% end %>
 			<th colspan="3" class="text-center">Actions</th>
 		</tr>
 		<% @questions.each do |question| %>
 		<tr>
 			<td><%= question.title %></td>
 			<td class="center"><%= question.max_rate %></td>
+			<% if @all %>
+				<td><%= question.questionnaire.title %></td>
+			<% end %>
 			<td class="action">
 				<%= link_to('Show', question, class: 'btn btn-info') %></td>
 			<td>

@@ -9,7 +9,9 @@
 					<% else  %>
 						<ol>
 						<% @questionnaires.each do |x| %>
-							<li><%= link_to x.title, questionnaire_path(x) %></li>
+							<li>
+								<%= x.title %> |
+								<%= link_to "Questions", questionnaire_questions_path(x) %></li>
 						<% end %>
 						</ol>
 					<% end %>
