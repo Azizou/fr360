@@ -54,9 +54,11 @@ gem 'bcrypt', '~> 3.1.7'
 group :test do
 	gem 'rspec-rails'
 	gem 'shoulda'
+	gem 'capybara', '~> 2.4.4'
 	gem 'mocha'
 	gem 'factory_girl_rails', '~> 4.5.0'
 end
+
 #gem 'acts_as_list', '~> 0.5.0'
 
 #gem 'country_select', '~> 2.1.0'

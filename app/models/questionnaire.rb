@@ -14,4 +14,5 @@ class Questionnaire < ActiveRecord::Base
 	belongs_to :admin
 	accepts_nested_attributes_for :questions, reject_if: lambda {|a| a[:description].blank?}, allow_destroy: true
 
+	validates :title, presence: true
 end
