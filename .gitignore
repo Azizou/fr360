@@ -1,13 +1,19 @@
-# Ignore idea files
+.rbenv-version
+.DS_Store
+.bundle
+db/*.sqlite3
+log/
+tmp/
+.sass-cache/
+coverage/
+solr/pids/
+solr/data/
+solr/lib/
+solr/pids/
+public/assets/
+public/uploads/
+.rvmrc
+vendor/ruby
 .idea/
-# Ignore bundler config.
-
-/.bundle
-
-# Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
-
-# Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp
+.project
+.powrc
