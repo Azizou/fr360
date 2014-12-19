@@ -14,7 +14,7 @@
 #  updated_at      :datetime
 #
 
-FactoryGirlRails.define do
+FactoryGirl.define do
 	factory :user do
 		first_name 'John'
 		last_name 'Doe'

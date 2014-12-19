@@ -51,7 +51,7 @@ gem 'wysiwyg-rails', '~> 1.2.3'
 gem 'bcrypt', '~> 3.1.7'
 
 
-group :test do
+group :test, :development do
 	gem 'rspec-rails'
 	gem 'shoulda'
 	gem 'capybara', '~> 2.4.4'

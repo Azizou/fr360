@@ -17,24 +17,26 @@
 require 'rails_helper'
 
 describe User do
-	before(:all) do
-		@user = User.new(first_name: 'test', last_name: 'Test', email: 'test@test.com')
-		@user.password = 'test'
-		@user.password_confirmation = 'test'
-		@user.save!
-	end
-	it 'should have full name' do
-		expect(@user.full_name).to eq('test Test')
+
+	context 'validations' do
+		it {should validate_presence_of(:email)}
+		it {should validate_presence_of(:first_name)}
+		it {should validate_presence_of(:last_name)}
+		it {should validate_presence_of(:password)}
+
+		it 'should be valid with all attributes' do
+			user = FactoryGirl.build_stubbed(:user)
+			expect(user).to be_valid
+		end
+
+		it 'should validate uniqueness of email' do
+			user1 = FactoryGirl.create(:user)
+			expect(user1).to be_valid
+
+			user2 = FactoryGirl.build_stubbed(:user, email: user1.email)
+			expect(user2).not_to be_valid
+		end
+
 	end
 
-	it 'should be valid with all attributes' do
-		expect(@user.valid?).to be_truthy
-	end
-
-	it 'should have a uniq email' do
-		user2 = User.new(@user.as_json) #Inherit attribute of the existing user except password and id.
-		user2.password = 'test'
-		user2.password_confirmation = 'test'
-		expect(user2).not_to be_truthy
-	end
 end
