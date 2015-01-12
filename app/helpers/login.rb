@@ -1,9 +1,6 @@
 class Login
-
 	include ActiveModel::Validations
 	attr_accessor :email, :password
-
-
 	EMAIL_REGEX = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i
 	#validates :email, presence: true, uniqueness: {case_sensitive: false}, format: {with: EMAIL_REGEX}
 	#validates :password, presence: true, length: {in: 6..15}

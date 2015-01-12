@@ -23,18 +23,12 @@ describe User do
 		it {should validate_presence_of(:first_name)}
 		it {should validate_presence_of(:last_name)}
 		it {should validate_presence_of(:password)}
+		it {should validate_uniqueness_of(:email)}
+		it {should_not allow_value('email@email').for(:email)}
+		it {should allow_value('email@email.com').for(:email)}
 
 		it 'should be valid with all attributes' do
-			user = FactoryGirl.build_stubbed(:user)
-			expect(user).to be_valid
-		end
-
-		it 'should validate uniqueness of email' do
-			user1 = FactoryGirl.create(:user)
-			expect(user1).to be_valid
-
-			user2 = FactoryGirl.build_stubbed(:user, email: user1.email)
-			expect(user2).not_to be_valid
+			expect(FactoryGirl.build_stubbed(:user)).to be_valid
 		end
 
 	end
